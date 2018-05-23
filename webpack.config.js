@@ -2,7 +2,7 @@ const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: path.join(__dirname, './src/index.js'),
+    entry: path.join(__dirname, './src/index.jsx'),
     output: {
         path: path.join(__dirname, './dist'),
         filename: '[name].bundle.js'
@@ -10,8 +10,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: ['babel-loader'],
+                test: /\.js|jsx$/,
+                use: ['babel-loader', 'eslint-loader'],
                 exclude: /node_modules/
             }
         ]
@@ -22,6 +22,9 @@ module.exports = {
             template: path.join(__dirname, './src/index.html')
         })
     ],
+    resolve: {
+        extensions: ['.js','.jsx']
+    },
     mode: 'development',
     devtool: ''
 }
