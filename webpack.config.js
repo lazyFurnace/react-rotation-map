@@ -1,12 +1,13 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
     entry: path.join(__dirname, './src/index.jsx'),
     output: {
         path: path.join(__dirname, './dist'),
-        filename: '[name].bundle.js'
+        filename: 'index.js'
     },
     module: {
         rules: [
@@ -31,6 +32,14 @@ module.exports = {
         }),
         new ExtractTextPlugin({
             filename: 'index.css'
+        }),
+        new StyleLintPlugin({
+            context: "src",
+            configFile: path.resolve(__dirname, './stylelint.config.js'),
+            files: '**/*.less',
+            failOnError: false,
+            quiet: true,
+            syntax: 'less'
         })
     ],
     resolve: {
