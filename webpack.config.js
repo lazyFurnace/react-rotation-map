@@ -1,5 +1,6 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: path.join(__dirname, './src/index.jsx'),
@@ -15,7 +16,10 @@ module.exports = {
                 exclude: /node_modules/
             },{
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader', 'less-loader']
+                }),
                 exclude: /node_modules/
             }
         ]
@@ -24,6 +28,9 @@ module.exports = {
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, './src/index.html')
+        }),
+        new ExtractTextPlugin({
+            filename: 'index.css'
         })
     ],
     resolve: {
