@@ -13,6 +13,10 @@ module.exports = {
                 test: /\.js|jsx$/,
                 use: ['babel-loader', 'eslint-loader'],
                 exclude: /node_modules/
+            },{
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
+                exclude: /node_modules/
             }
         ]
     },
