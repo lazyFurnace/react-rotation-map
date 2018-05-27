@@ -2,4 +2,4 @@
 
 import ChoiceNav from './choiceNav';
 
-export default { ChoiceNav };
+export default ChoiceNav;
