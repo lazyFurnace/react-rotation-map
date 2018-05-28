@@ -3,18 +3,20 @@ import PropTypes from 'prop-types';
 
 import './pictureRotation.less';
 
-function PictureRotation(props) {
+function PictureRotation({ children }) {
     return (
-        <div className="pictureRotation">将来的轮播图片 {props.data} </div>
+        <div className="pictureRotation">
+            { children }
+        </div>
     );
 }
 
 PictureRotation.defaultProps = {
-    data: '55555555'
+    children: '你好！ 世界！'
 };
 
 PictureRotation.propTypes = {
-    data: PropTypes.string
+    children: PropTypes.node
 };
 
 export default PictureRotation;
