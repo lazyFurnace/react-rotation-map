@@ -3,20 +3,28 @@ import PropTypes from 'prop-types';
 
 import Style from './pictureRotation.less';
 
-function PictureRotation({ children }) {
+function PictureRotation({ children, pictureStyle }) {
     return (
-        <div className={Style.pictureRotation}>
+        <div style={pictureStyle} className={Style.pictureRotation}>
             { children }
         </div>
     );
 }
 
 PictureRotation.defaultProps = {
-    children: '你好！ 世界！'
+    children: '你好！ 世界！',
+    pictureStyle: {
+        height: '100%',
+        width: '100%'
+    }
 };
 
 PictureRotation.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    pictureStyle: PropTypes.shape({
+        height: PropTypes.string,
+        width: PropTypes.string
+    })
 };
 
 export default PictureRotation;

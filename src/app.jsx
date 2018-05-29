@@ -27,15 +27,21 @@ RotationMap.propTypes = {
     children: PropTypes.node
 };
 
+
+const pictureStyle = {
+    height: '400px',
+    width: '300px'
+};
+
 export default function App() {
     return (
-        <RotationMap>
+        <RotationMap pictureStyle={pictureStyle}>
             {
                 [
-                    <div className="React">你好! React!</div>,
-                    <div className="Vue">你好! Vue!</div>,
-                    <div className="Ng">你好! NG!</div>,
-                    <div className="Component">你好! 组件!</div>
+                    <div className="Rmap React">你好! React!</div>,
+                    <div className="Rmap Vue">你好! Vue!</div>,
+                    <div className="Rmap Ng">你好! NG!</div>,
+                    <div className="Rmap Component">你好! 组件!</div>
                 ]
             }
         </RotationMap>
