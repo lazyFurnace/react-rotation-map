@@ -5,11 +5,11 @@ import ChoiceNav from './choiceNav';
 import MovementArrows from './movementArrows';
 import PictureRotation from './pictureRotation';
 
-import './app.less';
+import Style from './app.less';
 
 function RotationMap({ children }) {
     return (
-        <div>
+        <div className={Style.root}>
             <ChoiceNav />
             <PictureRotation>
                 { children }
@@ -32,10 +32,10 @@ export default function App() {
         <RotationMap>
             {
                 [
-                    <div>你好! React!</div>,
-                    <div>你好! VUE!</div>,
-                    <div>你好! NG!</div>,
-                    <div>你好! 组件!</div>
+                    <div className="React">你好! React!</div>,
+                    <div className="Vue">你好! Vue!</div>,
+                    <div className="Ng">你好! NG!</div>,
+                    <div className="Component">你好! 组件!</div>
                 ]
             }
         </RotationMap>

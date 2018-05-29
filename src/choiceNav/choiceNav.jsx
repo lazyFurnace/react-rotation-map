@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './choiceNav.less';
+import Style from './choiceNav.less';
 
 function ChoiceNav() {
     return (
-        <div className="ChoiceNav">将来的下部按钮</div>
+        <div className={Style.ChoiceNav}>将来的下部按钮</div>
     );
 }
 

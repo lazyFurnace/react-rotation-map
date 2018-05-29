@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './movementArrows.less';
+import Style from './movementArrows.less';
 
 function MovementArrows() {
     return (
-        <div className="MovementArrows">这是未来的两个箭头</div>
+        <div className={Style.MovementArrows}>这是未来的两个箭头</div>
     );
 }
 

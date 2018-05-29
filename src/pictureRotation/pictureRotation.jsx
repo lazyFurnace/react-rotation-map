@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './pictureRotation.less';
+import Style from './pictureRotation.less';
 
 function PictureRotation({ children }) {
     return (
-        <div className="pictureRotation">
+        <div className={Style.pictureRotation}>
             { children }
         </div>
     );
