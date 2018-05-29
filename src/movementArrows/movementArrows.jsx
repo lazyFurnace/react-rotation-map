@@ -4,7 +4,10 @@ import Style from './movementArrows.less';
 
 function MovementArrows() {
     return (
-        <div className={Style.MovementArrows}>这是未来的两个箭头</div>
+        <div className={Style.MovementArrows}>
+            <div className={`${Style.arrow} ${Style['arrow-left']}`}>&lt;</div>
+            <div className={`${Style.arrow} ${Style['arrow-right']}`}>&gt;</div>
+        </div>
     );
 }
 
