@@ -45,6 +45,11 @@ module.exports = {
     resolve: {
         extensions: ['.js','.jsx']
     },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),  //启动路径
+        host:'localhost',  //域名
+        port: 8018,  //端口号
+    },
     mode: 'development',
     devtool: ''
 }

@@ -7,8 +7,8 @@ function PictureRotation({ children, pictureStyle }) {
     return (
         <div style={pictureStyle} className={Style.pictureRotation}>
             {
-                React.Children(children, item => (
-                    <div key={item.className}>
+                React.Children.map(children, item => (
+                    <div>
                         {item}
                     </div>
                 ))

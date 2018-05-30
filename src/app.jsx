@@ -38,10 +38,10 @@ export default function App() {
         <RotationMap pictureStyle={pictureStyle}>
             {
                 [
-                    <div className="Rmap React">你好! React!</div>,
-                    <div className="Rmap Vue">你好! Vue!</div>,
-                    <div className="Rmap Ng">你好! NG!</div>,
-                    <div className="Rmap Component">你好! 组件!</div>
+                    <div key="React" className="Rmap React">你好! React!</div>,
+                    <div key="Vue" className="Rmap Vue">你好! Vue!</div>,
+                    <div key="Ng" className="Rmap Ng">你好! NG!</div>,
+                    <div key="Component" className="Rmap Component">你好! 组件!</div>
                 ]
             }
         </RotationMap>
