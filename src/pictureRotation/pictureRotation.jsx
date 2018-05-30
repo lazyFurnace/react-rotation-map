@@ -6,7 +6,13 @@ import Style from './pictureRotation.less';
 function PictureRotation({ children, pictureStyle }) {
     return (
         <div style={pictureStyle} className={Style.pictureRotation}>
-            { children }
+            {
+                React.Children(children, item => (
+                    <div key={item.className}>
+                        {item}
+                    </div>
+                ))
+            }
         </div>
     );
 }
