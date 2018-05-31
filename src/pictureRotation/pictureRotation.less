@@ -2,3 +2,30 @@
     color: #be24be;
     position: relative;
 }
+:global {
+    .rotation_item {
+        position: absolute;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        transition: all .3s linear;
+    }
+    .rotation_left_up {
+        left: -100%;
+    }
+    .rotation_right_up {
+        right: -100%;
+    }
+    .rotation_center {
+        display: block;
+        left: 0;
+        z-index: 50;
+    }
+    .rotation_left_down {
+        left: 100%;
+    }
+    .rotation_right_down {
+        right: 100%;
+    }
+}

@@ -27,7 +27,6 @@ RotationMap.propTypes = {
     children: PropTypes.node
 };
 
-
 const pictureStyle = {
     height: '400px',
     width: '300px'

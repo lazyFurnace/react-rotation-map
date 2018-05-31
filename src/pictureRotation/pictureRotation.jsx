@@ -3,18 +3,38 @@ import PropTypes from 'prop-types';
 
 import Style from './pictureRotation.less';
 
-function PictureRotation({ children, pictureStyle }) {
-    return (
-        <div style={pictureStyle} className={Style.pictureRotation}>
-            {
-                React.Children.map(children, item => (
-                    <div>
-                        {item}
-                    </div>
-                ))
-            }
-        </div>
-    );
+class PictureRotation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nowIndex: 0,
+            lastIndex: null
+        };
+        this.getClassName = this.getClassName.bind(this);
+    }
+    getClassName(index) {
+        if (index === this.state.nowIndex) {
+            return 'rotation_center';
+        }
+        if (index === this.state.lastIndex) {
+            return 'rotation_left_up';
+        }
+        return '';
+    }
+    render() {
+        const { pictureStyle, children } = this.props;
+        return (
+            <div style={pictureStyle} className={Style.pictureRotation}>
+                {
+                    React.Children.map(children, (item, index) => (
+                        <div className={`rotation_item ${this.getClassName(index)}`}>
+                            {item}
+                        </div>
+                    ))
+                }
+            </div>
+        );
+    }
 }
 
 PictureRotation.defaultProps = {
