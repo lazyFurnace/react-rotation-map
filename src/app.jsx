@@ -7,34 +7,71 @@ import PictureRotation from './pictureRotation';
 
 import Style from './app.less';
 
-function RotationMap({ children }) {
-    return (
-        <div className={Style.root}>
-            <ChoiceNav />
-            <PictureRotation>
-                { children }
-            </PictureRotation>
-            <MovementArrows />
-        </div>
-    );
+class RotationMap extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            index: 0
+        };
+    }
+    arrowChangeState = (type) => {
+        if (type === 'up' && this.state.index < this.props.children.length - 1) {
+            this.setState({
+                index: this.state.index + 1
+            });
+        } else if (type === 'up' && this.state.index === this.props.children.length - 1) {
+            this.setState({
+                index: 0
+            });
+        } else if (type === 'down' && this.state.index > 0) {
+            this.setState({
+                index: this.state.index - 1
+            });
+        } else if (type === 'down' && this.state.index === 0) {
+            this.setState({
+                index: this.props.children.length - 1
+            });
+        }
+    }
+    choiceChangeState = (val) => {
+        if (!val && val !== 0) return;
+        if (Object.prototype.toString.call(val) === '[object Number]') {
+            if (val >= 0 && val < this.props.children.length) {
+                this.setState({
+                    index: val
+                });
+            }
+        }
+    }
+    render() {
+        const ChoiceNavProps = {
+            choiceChangeState: this.choiceChangeState,
+            num: this.props.children.length,
+            index: this.state.index
+        };
+        return (
+            <div className={Style.root}>
+                <ChoiceNav {...ChoiceNavProps} />
+                <PictureRotation index={this.state.index}>
+                    { this.props.children }
+                </PictureRotation>
+                <MovementArrows arrowChangeState={this.arrowChangeState} />
+            </div>
+        );
+    }
 }
 
 RotationMap.defaultProps = {
-    children: '你好！ 世界！'
+    children: ''
 };
 
 RotationMap.propTypes = {
     children: PropTypes.node
 };
 
-const pictureStyle = {
-    height: '400px',
-    width: '300px'
-};
-
 export default function App() {
     return (
-        <RotationMap pictureStyle={pictureStyle}>
+        <RotationMap>
             {
                 [
                     <div key="React" className="Rmap React">你好! React!</div>,
