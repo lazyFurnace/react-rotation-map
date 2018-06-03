@@ -1,4 +1,5 @@
 module.exports = {
+    "parser": "babel-eslint",
     // 指定校验的ECMAScript的版本及特性
     "parserOptions": {
         "ecmaVersion": 7, // ECMAScript版本，7为ES7
@@ -36,5 +37,6 @@ module.exports = {
         "comma-dangle": ["error", "never"], // 要求或禁止末尾逗号：不允许逗号
         "indent": ["error", 4], // JavaScript代码强制使用一致的缩进：4格缩进
         "react/jsx-indent": ["error", 4],  //react 4缩进
+        "react/jsx-indent-props": ["error", 4],
     }    
   };
