@@ -6,22 +6,18 @@ import Style from './movementArrows.less';
 function MovementArrows(props) {
     return (
         <div className={Style.MovementArrows}>
-            <div
-                role="presentation"
+            <button
                 className={`${Style.arrow} ${Style['arrow-left']}`}
                 onClick={() => props.arrowChangeState('down')}
-                onKeyDown={() => {}}
             >
                 &lt;
-            </div>
-            <div
-                role="presentation"
+            </button>
+            <button
                 className={`${Style.arrow} ${Style['arrow-right']}`}
                 onClick={() => props.arrowChangeState('up')}
-                onKeyDown={() => {}}
             >
                 &gt;
-            </div>
+            </button>
         </div>
     );
 }
