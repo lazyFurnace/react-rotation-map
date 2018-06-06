@@ -22,7 +22,12 @@ module.exports = {
                     use: ['css-loader?modules&localIdentName=[local]-[hash:base64:5]', 'postcss-loader', 'less-loader']
                 }),
                 exclude: /node_modules/
-            }
+            },{
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [{
+                    loader: 'url-loader',
+                }]
+             }
         ]
     },
     plugins: [
