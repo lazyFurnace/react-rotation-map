@@ -22,9 +22,7 @@ class ChoiceNav extends React.Component {
                             data-key={key}
                             className={`${key === index ? Style.selNav : ''}`}
                             key={`${item}`}
-                        >
-                            o
-                        </button>
+                        />
                     ))
                 }
             </div>

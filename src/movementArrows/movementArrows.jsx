@@ -9,15 +9,11 @@ function MovementArrows(props) {
             <button
                 className={`${Style.arrow} ${Style['arrow-left']}`}
                 onClick={() => props.arrowChangeState('down')}
-            >
-                &lt;
-            </button>
+            />
             <button
                 className={`${Style.arrow} ${Style['arrow-right']}`}
                 onClick={() => props.arrowChangeState('up')}
-            >
-                &gt;
-            </button>
+            />
         </div>
     );
 }
