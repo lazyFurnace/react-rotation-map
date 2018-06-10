@@ -1,5 +1,6 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+//css样式规范检测工具
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
@@ -33,6 +34,7 @@ module.exports = {
             filename: 'index.html',
             template: path.join(__dirname, './src/index.html')
         }),
+        //css样式规范检测工具
         new StyleLintPlugin({
             context: "src",
             configFile: path.resolve(__dirname, './stylelint.config.js'),
