@@ -1,13 +1,14 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
     entry: path.join(__dirname, './src/index.jsx'),
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'index.js'
+        filename: 'index.js',
+        chunkFilename: '[name].js',
+        libraryTarget: 'umd'
     },
     module: {
         rules: [
@@ -17,10 +18,7 @@ module.exports = {
                 exclude: /node_modules/
             },{
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader?modules&localIdentName=[local]-[hash:base64:5]', 'postcss-loader', 'less-loader']
-                }),
+                use: ['style-loader', 'css-loader?modules&localIdentName=[local]-[hash:base64:5]', 'postcss-loader', 'less-loader'],
                 exclude: /node_modules/
             },{
                 test: /\.(png|jpg|gif|svg)$/,
@@ -35,9 +33,6 @@ module.exports = {
             filename: 'index.html',
             template: path.join(__dirname, './src/index.html')
         }),
-        new ExtractTextPlugin({
-            filename: 'index.css'
-        }),
         new StyleLintPlugin({
             context: "src",
             configFile: path.resolve(__dirname, './stylelint.config.js'),
@@ -47,6 +42,20 @@ module.exports = {
             syntax: 'less'
         })
     ],
+    optimization: {
+        splitChunks: {
+            chunks: 'initial',
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
+                    priority: 10,
+                    enforce: true
+                }
+            }
+        }
+    },
     resolve: {
         extensions: ['.js','.jsx']
     },

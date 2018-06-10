@@ -5,9 +5,9 @@ import ChoiceNav from './choiceNav';
 import MovementArrows from './movementArrows';
 import PictureRotation from './pictureRotation';
 
-import Style from './app.less';
+import Style from './rotationMap.less';
 
-class RotationMap extends React.Component {
+export default class RotationMap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -68,26 +68,3 @@ RotationMap.defaultProps = {
 RotationMap.propTypes = {
     children: PropTypes.node
 };
-
-export default function App() {
-    return (
-        <RotationMap>
-            {
-                [
-                    <div key="React" className="Rmap React">
-                        <h1>你好! React!</h1>
-                    </div>,
-                    <div key="Vue" className="Rmap Vue">
-                        <h1>你好! Vue!</h1>
-                    </div>,
-                    <div key="Ng" className="Rmap Ng">
-                        <h1>你好! NG!</h1>
-                    </div>,
-                    <div key="Component" className="Rmap Component">
-                        <h1>你好! 组件!</h1>
-                    </div>
-                ]
-            }
-        </RotationMap>
-    );
-}
