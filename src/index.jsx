@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import RotationMap from './rotationMap';
+import RotationMap from './component/rotationMap';
 
 function App() {
     return (

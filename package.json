@@ -7,7 +7,8 @@
     "build": "npx webpack --config webpack.config.js",
     "start": "npx webpack-dev-server --config webpack.config.js --color --progress --hot",
     "eslint": "npx eslint src/**/*.jsx",
-    "stylelint": "npx stylelint src/**/*.less"
+    "stylelint": "npx stylelint src/**/*.less",
+    "babel-lib": "npx babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
