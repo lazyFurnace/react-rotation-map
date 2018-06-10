@@ -1,4 +1,6 @@
+//用于发布 npm 包的 webpack 配置文件
 const path = require('path')
+//不打包 node_module s里的文件
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
@@ -6,6 +8,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, './lib-webpack'),
         filename: 'index.lib.js',
+        //转化符合 commonjs 语法
         libraryTarget: 'commonjs2'
     },
     module: {
