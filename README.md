@@ -1,3 +1,3 @@
 # react-rotation-map
 
-react轮播图
+## This is a test not to use!
