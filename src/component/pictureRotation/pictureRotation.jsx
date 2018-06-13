@@ -9,7 +9,7 @@ function PictureRotation(props) {
         <div className={Style.pictureRotation}>
             {
                 React.Children.map(children, (item, key) => (
-                    <div className={`rotation_item ${index === key ? 'rotation_center' : ''} `}>
+                    <div className={`rotation_item${index === key ? ' rotation_center' : ''}`}>
                         {item}
                     </div>
                 ))
