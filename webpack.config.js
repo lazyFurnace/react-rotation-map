@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin')
 //css样式规范检测工具
 const StyleLintPlugin = require('stylelint-webpack-plugin')
@@ -30,6 +31,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, './src/index.html')
@@ -65,6 +67,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),  //启动路径
         host:'localhost',  //域名
         port: 8018,  //端口号
+        hot: true
     },
     mode: 'development',
     devtool: ''
