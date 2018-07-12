@@ -1,11 +1,14 @@
 const path = require('path')
-const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin')
 //css样式规范检测工具
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
-    entry: path.join(__dirname, './src/index.jsx'),
+    // webpack/hot/only-dev-server 热加载配置   不要使用 插件 webpack.HotModuleReplacementPlugin
+    entry: [
+        'webpack/hot/only-dev-server',
+        path.join(__dirname, './src/index.jsx')
+    ],
     output: {
         path: path.join(__dirname, './dist'),
         filename: 'index.js',
@@ -31,7 +34,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, './src/index.html')
