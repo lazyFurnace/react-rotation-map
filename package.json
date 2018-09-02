@@ -8,8 +8,7 @@
     "start": "npx webpack-dev-server --config webpack.config.js --color --progress --hot",
     "eslint": "npx eslint src/**/*.jsx",
     "stylelint": "npx stylelint src/**/*.less",
-    "babel-lib": "npx babel src --out-dir lib-babel",
-    "webpack-lib": "npx webpack --config webpack.config.lib.js"
+    "build-lib": "npx webpack --config webpack.config.lib.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +31,6 @@
     "react-dom": "^16.3.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
@@ -57,7 +55,6 @@
     "postcss-loader": "^2.1.5",
     "style-loader": "^0.21.0",
     "stylelint": "^8.4.0",
-    "stylelint-config-css-modules": "^1.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.0.1",

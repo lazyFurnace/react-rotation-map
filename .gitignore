@@ -4,5 +4,4 @@
 /node_modules
 /dist
 /lib-webpack
-/lib-babel
 package-lock.json

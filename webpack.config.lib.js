@@ -1,6 +1,6 @@
-//用于发布 npm 包的 webpack 配置文件
+// 用于发布 npm 包的 webpack 配置文件
 const path = require('path')
-//不打包 node_module s里的文件
+// 不打包 node_module s里的文件
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, './lib-webpack'),
         filename: 'index.lib.js',
-        //转化符合 commonjs 语法
+        // 转化符合 commonjs 语法
         libraryTarget: 'commonjs2'
     },
     module: {
@@ -19,7 +19,7 @@ module.exports = {
                 exclude: /node_modules/
             },{
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader?modules&localIdentName=[local]-[hash:base64:5]', 'postcss-loader', 'less-loader'],
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
                 exclude: /node_modules/
             },{
                 test: /\.(png|jpg|gif|svg)$/,
@@ -29,7 +29,7 @@ module.exports = {
              }
         ]
     },
-    externals: [nodeExternals()],
+    externals: [ nodeExternals() ],
     resolve: {
         extensions: ['.js','.jsx']
     },
