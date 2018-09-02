@@ -4,10 +4,10 @@ const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-    entry: path.join(__dirname, './src/index.lib.jsx'),
+    entry: path.join(__dirname, './src/index.assembly.jsx'),
     output: {
-        path: path.join(__dirname, './lib-webpack'),
-        filename: 'index.lib.js',
+        path: path.join(__dirname),
+        filename: 'react-rotation-map.js',
         // 转化符合 commonjs 语法
         libraryTarget: 'commonjs2'
     },

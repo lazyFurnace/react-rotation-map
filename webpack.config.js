@@ -3,12 +3,18 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 // css样式规范检测工具
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
-module.exports = {
+let entryConfig = [];
+// 检测是不是开发环境，是的话有热加载
+if (process.env.NODE_ENV === 'dev') {
     // webpack/hot/only-dev-server 热加载配置，不要使用插件 webpack.HotModuleReplacementPlugin
-    entry: [
-        'webpack/hot/only-dev-server',
-        path.join(__dirname, './src/index.jsx')
-    ],
+    entryConfig.push('webpack/hot/only-dev-server');
+};
+
+entryConfig.push(path.join(__dirname, './src/index.jsx'));
+
+module.exports = {
+   
+    entry: entryConfig,
     output: {
         path: path.join(__dirname, './dist'),
         filename: 'index.js',
