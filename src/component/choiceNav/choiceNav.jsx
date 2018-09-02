@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Style from './choiceNav.less';
+import './choiceNav.less';
 
 class ChoiceNav extends React.Component {
     getLength = (num) => {
@@ -14,13 +14,13 @@ class ChoiceNav extends React.Component {
     render() {
         const { num, index } = this.props;
         return (
-            <div className={Style.ChoiceNav}>
+            <div className="ChoiceNav">
                 {
                     this.getLength(num).map((item, key) => (
                         <button
                             onClick={this.navClick}
                             data-key={key}
-                            className={`${key === index ? Style.selNav : ''}`}
+                            className={`${key === index ? 'selNav' : ''}`}
                             key={`${item}`}
                         />
                     ))

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Style from './pictureRotation.less';
+import './pictureRotation.less';
 
 function PictureRotation(props) {
     const { children, index } = props;
     return (
-        <div className={Style.pictureRotation}>
+        <div className="pictureRotation">
             {
                 React.Children.map(children, (item, key) => (
                     <div className={`rotation_item${index === key ? ' rotation_center' : ''}`}>

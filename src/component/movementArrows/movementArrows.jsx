@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Style from './movementArrows.less';
+import './movementArrows.less';
 
 function MovementArrows(props) {
     return (
-        <div className={Style.MovementArrows}>
+        <div className="MovementArrows">
             <button
-                className={`${Style.arrow} ${Style['arrow-left']}`}
+                className="arrow arrow-left"
                 onClick={() => props.arrowChangeState('down')}
             />
             <button
-                className={`${Style.arrow} ${Style['arrow-right']}`}
+                className="arrow arrow-right"
                 onClick={() => props.arrowChangeState('up')}
             />
         </div>

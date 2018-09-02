@@ -5,7 +5,7 @@ import ChoiceNav from './choiceNav';
 import MovementArrows from './movementArrows';
 import PictureRotation from './pictureRotation';
 
-import Style from './rotationMap.less';
+import './rotationMap.less';
 
 export default class RotationMap extends React.Component {
     constructor(props) {
@@ -50,7 +50,7 @@ export default class RotationMap extends React.Component {
             index: this.state.index
         };
         return (
-            <div className={Style.root}>
+            <div className="root">
                 <ChoiceNav {...ChoiceNavProps} />
                 <PictureRotation index={this.state.index}>
                     { this.props.children }
