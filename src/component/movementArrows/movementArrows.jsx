@@ -1,3 +1,9 @@
+/**
+ * 左右翻页键
+ * @param {Function} arrowChangeState 左右切换的回调函数
+ * @param {Boolean} iconLeft 控制左翻页显示
+ * @param {Boolean} iconRight 控制右翻页显示
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,5 +1,5 @@
 /**
- * choiceNav 组件，轮播图下侧的指示按钮
+ * 轮播图下侧的指示按钮
  * @param {Function} choiceChangeState 回调函数处理点击事件
  * @param {Number} num 一共多少个
  * @param {Number} index 当前是哪个
