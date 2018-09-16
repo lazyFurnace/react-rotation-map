@@ -13,7 +13,6 @@ if (process.env.NODE_ENV === 'dev') {
 entryConfig.push(path.join(__dirname, './src/index.jsx'));
 
 module.exports = {
-   
     entry: entryConfig,
     output: {
         path: path.join(__dirname, './dist'),
@@ -32,11 +31,15 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
                 exclude: /node_modules/
             }, {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }, {
                 test: /\.(png|jpg|gif|svg)$/,
-                use: [{
-                    loader: 'url-loader',
-                }]
-             }
+                use: [{ loader: 'url-loader' }]
+            }, {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                loader: 'file-loader'
+            }
         ]
     },
     plugins: [
@@ -69,13 +72,13 @@ module.exports = {
         }
     },
     resolve: {
-        extensions: ['.js','.jsx']
+        extensions: ['.js', '.jsx']
     },
     devServer: {
         // 启动路径
         contentBase: path.join(__dirname, 'dist'),
         // 域名
-        host:'localhost',
+        host: 'localhost',
         // 端口号
         port: 8018,
         hot: true

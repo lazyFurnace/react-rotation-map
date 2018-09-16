@@ -3,5 +3,6 @@
 # dependencies
 /node_modules
 /dist
+/main
 /lib-webpack
 package-lock.json
