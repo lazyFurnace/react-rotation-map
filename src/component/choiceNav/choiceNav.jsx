@@ -1,3 +1,9 @@
+/**
+ * choiceNav 组件，轮播图下侧的指示按钮
+ * @param {Function} choiceChangeState 回调函数处理点击事件
+ * @param {Number} num 一共多少个
+ * @param {Number} index 当前是哪个
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -14,13 +20,13 @@ class ChoiceNav extends React.Component {
     render() {
         const { num, index } = this.props;
         return (
-            <div className="ChoiceNav">
+            <div className="choice-nav">
                 {
                     this.getLength(num).map((item, key) => (
                         <button
                             onClick={this.navClick}
                             data-key={key}
-                            className={`${key === index ? 'selNav' : ''}`}
+                            className={`${key === index ? 'sel-nav' : ''}`}
                             key={`${item}`}
                         />
                     ))

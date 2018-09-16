@@ -1,4 +1,4 @@
-.ChoiceNav {
+.choice-nav {
     color: #ddd;
     position: absolute;
     z-index: 1000;
@@ -7,16 +7,18 @@
     transform: translateX(-50%);
     display: flex;
     > button {
-        width: 40px;
+        width: 20px;
         height: 5px;
-        margin: 10px 5px;
+        margin: 10px 3px;
         border-radius: 2px;
         box-sizing: border-box;
-        background-color: #ddd;
+        background-color: #333;
         opacity: 0.6;
+        transition: all 0.3s linear;
     }
-    .selNav {
-        background-color: #666;
+    .sel-nav {
+        width: 25px;
+        background-color: #fff;
     }
 }
 
