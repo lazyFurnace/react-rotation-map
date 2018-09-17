@@ -84,5 +84,5 @@ module.exports = {
         hot: true
     },
     mode: 'development',
-    devtool: ''
+    devtool: 'inline-source-map'
 }
