@@ -1,3 +1,7 @@
+/**
+ * 轮播插件父组件
+ * @param {Node} children 需要轮播的内容
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -73,7 +77,7 @@ export default class RotationMap extends React.Component {
             index
         };
         return (
-            <div className="root">
+            <div className="react-rotation-map">
                 <ChoiceNav {...ChoiceNavProps} />
                 <PictureRotation direction={direction} index={index}>
                     { children }
