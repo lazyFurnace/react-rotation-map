@@ -26,3 +26,22 @@
 .rotation_right_down {
     right: 100%;
 }
+
+
+@keyframes animation-center-to-left {
+    0% { left: 0 }
+    100% { left: -100% }
+}
+
+@keyframes animation-center-to-right {
+    0% { left: 0 }
+    100% { left: 100% }
+}
+
+.rotation-center-to-left {
+    animation: 0.3s animation-center-to-left;
+}
+
+.rotation-center-to-right {
+    animation: 0.3s animation-center-to-right;
+}
