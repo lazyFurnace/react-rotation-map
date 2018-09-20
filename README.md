@@ -20,3 +20,9 @@
     </div>
 </RotationMap>
 ```
+
+### API(API功能尚未实现)
+
+参数|说明|类型|默认
+:--:|:--:|:--:|:--:
+`afterChange`|切换之后的回调函数|`function`|无
