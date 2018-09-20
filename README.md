@@ -25,4 +25,6 @@
 
 参数|说明|类型|默认
 :--:|:--:|:--:|:--:
-`afterChange`|切换之后的回调函数|`function`|无
+`beforeChange`|切换动画之前的回调函数|`function(from, to)`|无
+`afterChange`|切换动画之后的回调函数|`function(current)`|无
+`afterChange`|切换动画之后的回调函数|`function(current)`|无
