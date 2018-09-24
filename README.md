@@ -28,7 +28,7 @@
 `beforeChange`|切换动画之前的回调函数|`function(from, to)`|无
 `afterChange`|切换动画之后的回调函数|`function(current)`|无
 `autoplay`|是否自动切换|`boolean`|`false`
-`dots`|是否显示下方指示条|`boolean`|`true`
+`dots`|是否显示指示条及切换按钮|`boolean`|`true`
 `easing`|动画切换效果|`string`|`linear`
 `effect`|动画效果的形式(scroll/fade)|`string`|`scroll`
-`currentIndex`|当前选中项|`number`|无
+`currentIndex`|当前选中项(暂定)|`number`|无
