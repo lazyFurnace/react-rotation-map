@@ -1,31 +1,27 @@
 .movement-arrows {
-    button {
+    button.iconfont {
         position: absolute;
         top: 0;
         z-index: 1000;
         width: 10%;
         height: 100%;
-        background: rgba(200, 200, 200, 0);
-        color: rgba(33, 33, 33, 0);
+        background: rgba(33, 33, 33, 0);
+        color: rgba(255, 255, 255, 0);
         font-size: 32px;
         transition: all 0.3s linear;
         &:hover, &:focus {
-            background: rgba(200, 200, 200, 0.1);
-            color: rgba(66, 66, 66, 0.8);
+            background: rgba(33, 33, 33, 0.1);
+            color: rgba(255, 255, 255, 0.5);
         }
-        &:active {
-            background: rgba(200, 200, 200, 0.2);
-            color: rgba(66, 66, 66, 1);
-        }
-        .active {
-            background: rgba(200, 200, 200, 0.2);
-            color: rgba(66, 66, 66, 1);
+        &:active, .active {
+            background: rgba(33, 33, 33, 0.2);
+            color: rgba(255, 255, 255, 0.8);
         }
     }
-    & button:first-child {
+    & button.iconfont:first-child {
         left: 0;
     }
-    & button:last-child {
+    & button.iconfont:last-child {
         right: 0;
     }
 }

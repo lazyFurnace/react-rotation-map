@@ -26,7 +26,7 @@ class ChoiceNav extends React.Component {
                         <button
                             onClick={this.navClick}
                             data-key={key}
-                            className={`${key === index ? 'sel-nav' : ''}`}
+                            className={`choice-nav-btn ${key === index ? 'sel-nav' : ''}`}
                             key={`${item}`}
                         />
                     ))
