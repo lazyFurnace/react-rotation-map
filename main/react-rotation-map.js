@@ -84,7 +84,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".choice-nav {\n  position: absolute;\n  z-index: 1000;\n  bottom: 0;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.choice-nav > button {\n  width: 20px;\n  height: 5px;\n  margin: 10px 3px;\n  border-radius: 2px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background-color: #333;\n  opacity: 0.6;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.choice-nav .sel-nav {\n  width: 25px;\n  background-color: #fff;\n}\n", ""]);
+exports.push([module.i, ".choice-nav {\n  position: absolute;\n  z-index: 1000;\n  bottom: 0;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.choice-nav > button.choice-nav-btn {\n  width: 18px;\n  height: 3px;\n  margin: 10px 3px;\n  border-radius: 1px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background-color: #333;\n  opacity: 0.6;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.choice-nav .sel-nav.choice-nav-btn {\n  width: 25px;\n  background-color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -103,7 +103,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".movement-arrows button {\n  position: absolute;\n  top: 0;\n  z-index: 1000;\n  width: 10%;\n  height: 100%;\n  background: rgba(200, 200, 200, 0);\n  color: rgba(33, 33, 33, 0);\n  font-size: 32px;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.movement-arrows button:hover,\n.movement-arrows button:focus {\n  background: rgba(200, 200, 200, .1);\n  color: rgba(66, 66, 66, .8);\n}\n.movement-arrows button:active {\n  background: rgba(200, 200, 200, .2);\n  color: #424242;\n}\n.movement-arrows button .active {\n  background: rgba(200, 200, 200, .2);\n  color: #424242;\n}\n.movement-arrows button:first-child {\n  left: 0;\n}\n.movement-arrows button:last-child {\n  right: 0;\n}\n", ""]);
+exports.push([module.i, ".movement-arrows button.iconfont {\n  position: absolute;\n  top: 0;\n  z-index: 1000;\n  width: 10%;\n  height: 100%;\n  background: rgba(33, 33, 33, 0);\n  color: rgba(255, 255, 255, 0);\n  font-size: 32px;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.movement-arrows button.iconfont:hover,\n.movement-arrows button.iconfont:focus {\n  background: rgba(33, 33, 33, .1);\n  color: rgba(255, 255, 255, .5);\n}\n.movement-arrows button.iconfont:active,\n.movement-arrows button.iconfont .active {\n  background: rgba(33, 33, 33, .2);\n  color: rgba(255, 255, 255, .8);\n}\n.movement-arrows button.iconfont:first-child {\n  left: 0;\n}\n.movement-arrows button.iconfont:last-child {\n  right: 0;\n}\n", ""]);
 
 // exports
 
@@ -122,7 +122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".picture-rotation {\n  position: relative;\n  height: 100%;\n}\n.rotation-item {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  right: 0;\n  -webkit-transition: all .3s linear;\n  transition: all .3s linear;\n}\n.rotation-center {\n  left: 0;\n}\n.rotation-exit {\n  display: none;\n}\n.rotation-center-to-left {\n  -webkit-animation: 0.3s animation-center-to-left;\n          animation: 0.3s animation-center-to-left;\n}\n.rotation-right-to-center {\n  -webkit-animation: 0.3s animation-right-to-center;\n          animation: 0.3s animation-right-to-center;\n}\n.rotation-center-to-right {\n  -webkit-animation: 0.3s animation-center-to-right;\n          animation: 0.3s animation-center-to-right;\n}\n.rotation-left-to-center {\n  -webkit-animation: 0.3s animation-left-to-center;\n          animation: 0.3s animation-left-to-center;\n}\n@-webkit-keyframes animation-center-to-left {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: -100%;\n  }\n}\n@keyframes animation-center-to-left {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: -100%;\n  }\n}\n@-webkit-keyframes animation-right-to-center {\n  0% {\n    left: 100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n@keyframes animation-right-to-center {\n  0% {\n    left: 100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n@-webkit-keyframes animation-center-to-right {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: 100%;\n  }\n}\n@keyframes animation-center-to-right {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: 100%;\n  }\n}\n@-webkit-keyframes animation-left-to-center {\n  0% {\n    left: -100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n@keyframes animation-left-to-center {\n  0% {\n    left: -100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n", ""]);
+exports.push([module.i, ".picture-rotation {\n  position: relative;\n  height: 100%;\n}\n.rotation-item {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  right: 0;\n  -webkit-transition: all .3s linear;\n  transition: all .3s linear;\n}\n.rotation-enter {\n  left: 0;\n}\n.rotation-exit {\n  display: none;\n}\n.rotation-center-to-left {\n  -webkit-animation: 0.3s animation-center-to-left;\n          animation: 0.3s animation-center-to-left;\n}\n.rotation-right-to-center {\n  -webkit-animation: 0.3s animation-right-to-center;\n          animation: 0.3s animation-right-to-center;\n}\n.rotation-center-to-right {\n  -webkit-animation: 0.3s animation-center-to-right;\n          animation: 0.3s animation-center-to-right;\n}\n.rotation-left-to-center {\n  -webkit-animation: 0.3s animation-left-to-center;\n          animation: 0.3s animation-left-to-center;\n}\n@-webkit-keyframes animation-center-to-left {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: -100%;\n  }\n}\n@keyframes animation-center-to-left {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: -100%;\n  }\n}\n@-webkit-keyframes animation-right-to-center {\n  0% {\n    left: 100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n@keyframes animation-right-to-center {\n  0% {\n    left: 100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n@-webkit-keyframes animation-center-to-right {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: 100%;\n  }\n}\n@keyframes animation-center-to-right {\n  0% {\n    left: 0;\n  }\n  100% {\n    left: 100%;\n  }\n}\n@-webkit-keyframes animation-left-to-center {\n  0% {\n    left: -100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n@keyframes animation-left-to-center {\n  0% {\n    left: -100%;\n  }\n  100% {\n    left: 0;\n  }\n}\n", ""]);
 
 // exports
 
@@ -141,7 +141,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".react-rotation-map {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, ".react-rotation-map {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.react-rotation-map button {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n", ""]);
 
 // exports
 
@@ -834,9 +834,9 @@ var ChoiceNav = function (_React$Component) {
         }
 
         return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = ChoiceNav.__proto__ || (0, _getPrototypeOf2.default)(ChoiceNav)).call.apply(_ref, [this].concat(args))), _this), _this.getLength = function (num) {
-            var navArr = new Array(num);
-            return navArr.fill('').map(function (item, index) {
-                return index;
+            var navArray = new Array(num);
+            return navArray.fill('').map(function (item, index) {
+                return item + index;
             });
         }, _this.navClick = function (e) {
             _this.props.choiceChangeState(window.parseInt(e.target.dataset.key));
@@ -859,7 +859,7 @@ var ChoiceNav = function (_React$Component) {
                     return _react2.default.createElement('button', {
                         onClick: _this2.navClick,
                         'data-key': key,
-                        className: '' + (key === index ? 'sel-nav' : ''),
+                        className: 'choice-nav-btn ' + (key === index ? 'sel-nav' : ''),
                         key: '' + item
                     });
                 })
@@ -1145,6 +1145,26 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ "babel-runtime/core-js/object/get-prototype-of");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ "babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ "babel-runtime/helpers/createClass");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ "babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ "babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
 var _react = __webpack_require__(/*! react */ "react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -1167,49 +1187,78 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @param {Number} index 当前选中的页码
  * @param {String} direction 需要切换轮播的方向
  */
-function PictureRotation(props) {
-    var children = props.children,
-        index = props.index,
-        direction = props.direction;
+var PictureRotation = function (_React$Component) {
+    (0, _inherits3.default)(PictureRotation, _React$Component);
 
-    return _react2.default.createElement(
-        'div',
-        { className: 'picture-rotation' },
-        _react2.default.Children.map(children, function (item, key) {
+    function PictureRotation() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        (0, _classCallCheck3.default)(this, PictureRotation);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = PictureRotation.__proto__ || (0, _getPrototypeOf2.default)(PictureRotation)).call.apply(_ref, [this].concat(args))), _this), _this.onEntered = function (node) {
+            _this.props.afterChange(window.parseInt(node.dataset.index));
+        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+    }
+
+    (0, _createClass3.default)(PictureRotation, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var _props = this.props,
+                children = _props.children,
+                index = _props.index,
+                direction = _props.direction;
+
             return _react2.default.createElement(
-                _Transition2.default,
-                { 'in': index === key, timeout: 300 },
-                function (state) {
-                    var className = void 0;
-                    if (state === 'entered') {
-                        className = 'rotation-center';
-                    } else if (state === 'exited') {
-                        className = 'rotation-exit';
-                    } else if (state === 'exiting') {
-                        className = direction === 'left' ? 'rotation-center-to-left' : 'rotation-center-to-right';
-                    } else if (state === 'entering') {
-                        className = direction === 'left' ? 'rotation-right-to-center' : 'rotation-left-to-center';
-                    }
+                'div',
+                { className: 'picture-rotation' },
+                _react2.default.Children.map(children, function (item, key) {
                     return _react2.default.createElement(
-                        'div',
-                        { className: 'rotation-item ' + className },
-                        item
+                        _Transition2.default,
+                        { onEntered: _this2.onEntered, 'in': index === key, timeout: 300 },
+                        function (state) {
+                            var className = void 0;
+                            if (state === 'entered') {
+                                className = 'rotation-enter';
+                            } else if (state === 'exited') {
+                                className = 'rotation-exit';
+                            } else if (state === 'exiting') {
+                                className = direction === 'left' ? 'rotation-center-to-left' : 'rotation-center-to-right';
+                            } else if (state === 'entering') {
+                                className = direction === 'left' ? 'rotation-right-to-center' : 'rotation-left-to-center';
+                            }
+                            return _react2.default.createElement(
+                                'div',
+                                { 'data-index': key, className: 'rotation-item ' + className },
+                                item
+                            );
+                        }
                     );
-                }
+                })
             );
-        })
-    );
-}
+        }
+    }]);
+    return PictureRotation;
+}(_react2.default.Component);
 
 PictureRotation.defaultProps = {
     children: '',
-    direction: 'left'
+    direction: 'left',
+    afterChange: function afterChange() {}
 };
 
 PictureRotation.propTypes = {
     children: _propTypes2.default.node,
     index: _propTypes2.default.number.isRequired,
-    direction: _propTypes2.default.string
+    direction: _propTypes2.default.string,
+    afterChange: _propTypes2.default.func
 };
 
 exports.default = PictureRotation;
@@ -1316,56 +1365,36 @@ var RotationMap = function (_React$Component) {
 
         var _this = (0, _possibleConstructorReturn3.default)(this, (RotationMap.__proto__ || (0, _getPrototypeOf2.default)(RotationMap)).call(this, props));
 
+        _this.changeState = function (index, direction) {
+            _this.props.beforeChange(_this.state.index, index);
+            _this.setState({ index: index, direction: direction });
+        };
+
         _this.arrowChangeState = function (type) {
             var children = _this.props.children;
             var index = _this.state.index;
 
-            var direction = '';
+            var len = children.length;
             switch (type) {
                 case 'up':
-                    direction = 'left';
-                    if (index < children.length - 1) {
-                        _this.setState({
-                            index: index + 1,
-                            direction: direction
-                        });
-                    } else if (index === children.length - 1) {
-                        _this.setState({
-                            index: 0,
-                            direction: direction
-                        });
-                    }
+                    _this.changeState(index < len - 1 ? index + 1 : 0, 'left');
                     break;
                 case 'down':
-                    direction = 'right';
-                    if (index > 0) {
-                        _this.setState({
-                            index: index - 1,
-                            direction: direction
-                        });
-                    } else if (index === 0) {
-                        _this.setState({
-                            index: children.length - 1,
-                            direction: direction
-                        });
-                    }
+                    _this.changeState(index > 0 ? index - 1 : len - 1, 'right');
                     break;
                 default:
-                    throw Error('轮播出现错误！');
+                    throw Error('The carousel has an error!');
             }
         };
 
         _this.choiceChangeState = function (val) {
+            var children = _this.props.children;
             var index = _this.state.index;
 
+            var len = children.length;
             if (index === val) return;
-            if (Object.prototype.toString.call(val) === '[object Number]') {
-                if (val >= 0 && val < _this.props.children.length) {
-                    _this.setState({
-                        index: val,
-                        direction: index < val ? 'left' : 'right'
-                    });
-                }
+            if (typeof val === 'number' && val >= 0 && val < len) {
+                _this.changeState(val, index < val ? 'left' : 'right');
             }
         };
 
@@ -1382,7 +1411,9 @@ var RotationMap = function (_React$Component) {
             var _state = this.state,
                 index = _state.index,
                 direction = _state.direction;
-            var children = this.props.children;
+            var _props = this.props,
+                children = _props.children,
+                afterChange = _props.afterChange;
 
             var ChoiceNavProps = {
                 choiceChangeState: this.choiceChangeState,
@@ -1395,7 +1426,7 @@ var RotationMap = function (_React$Component) {
                 _react2.default.createElement(_choiceNav2.default, ChoiceNavProps),
                 _react2.default.createElement(
                     _pictureRotation2.default,
-                    { direction: direction, index: index },
+                    { afterChange: afterChange, direction: direction, index: index },
                     children
                 ),
                 _react2.default.createElement(_movementArrows2.default, { arrowChangeState: this.arrowChangeState })
@@ -1409,11 +1440,15 @@ exports.default = RotationMap;
 
 
 RotationMap.defaultProps = {
-    children: ''
+    children: '',
+    beforeChange: function beforeChange() {},
+    afterChange: function afterChange() {}
 };
 
 RotationMap.propTypes = {
-    children: _propTypes2.default.node
+    children: _propTypes2.default.node,
+    beforeChange: _propTypes2.default.func,
+    afterChange: _propTypes2.default.func
 };
 
 /***/ }),
