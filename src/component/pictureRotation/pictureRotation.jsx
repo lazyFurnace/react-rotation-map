@@ -11,7 +11,7 @@ import Transition from 'react-transition-group/Transition';
 import './pictureRotation.less';
 
 class PictureRotation extends React.Component {
-    onEnter = (node) => {
+    onEntered = (node) => {
         this.props.afterChange(window.parseInt(node.dataset.index));
     }
     render() {
@@ -20,12 +20,12 @@ class PictureRotation extends React.Component {
             <div className="picture-rotation">
                 {
                     React.Children.map(children, (item, key) => (
-                        <Transition onEnter={this.onEnter} in={index === key} timeout={300}>
+                        <Transition onEntered={this.onEntered} in={index === key} timeout={300}>
                             {
                                 (state) => {
                                     let className;
                                     if (state === 'entered') {
-                                        className = 'rotation-center';
+                                        className = 'rotation-enter';
                                     } else if (state === 'exited') {
                                         className = 'rotation-exit';
                                     } else if (state === 'exiting') {
