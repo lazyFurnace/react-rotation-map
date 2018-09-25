@@ -11,8 +11,8 @@ import './choiceNav.less';
 
 class ChoiceNav extends React.Component {
     getLength = (num) => {
-        const navArr = new Array(num);
-        return navArr.fill('').map((item, index) => index);
+        const navArray = new Array(num);
+        return navArray.fill('').map((item, index) => item + index);
     }
     navClick = (e) => {
         this.props.choiceChangeState(window.parseInt(e.target.dataset.key));

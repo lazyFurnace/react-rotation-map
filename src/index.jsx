@@ -9,20 +9,28 @@ if (module.hot) {
     module.hot.accept();
 }
 
+function beforeChange(from, to) {
+    console.log(`beforeChange: ${from} ${to}`);
+}
+
+function afterChange(current) {
+    console.log(`afterChange: ${current}`);
+}
+
 function App() {
     return (
         <div className="root">
-            <RotationMap>
-                <div key="React" className="Rmap React">
+            <RotationMap beforeChange={beforeChange} afterChange={afterChange}>
+                <div className="Rmap React">
                     <h1>你好! React!</h1>
                 </div>
-                <div key="Vue" className="Rmap Vue">
+                <div className="Rmap Vue">
                     <h1>你好! Vue!</h1>
                 </div>
-                <div key="Ng" className="Rmap Ng">
+                <div className="Rmap Ng">
                     <h1>你好! NG!</h1>
                 </div>
-                <div key="Component" className="Rmap Component">
+                <div className="Rmap Component">
                     <h1>你好! 组件!</h1>
                 </div>
             </RotationMap>

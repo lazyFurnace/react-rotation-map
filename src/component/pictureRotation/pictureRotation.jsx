@@ -10,48 +10,55 @@ import Transition from 'react-transition-group/Transition';
 
 import './pictureRotation.less';
 
-function PictureRotation(props) {
-    const { children, index, direction } = props;
-    return (
-        <div className="picture-rotation">
-            {
-                React.Children.map(children, (item, key) => (
-                    <Transition in={index === key} timeout={300}>
-                        {
-                            (state) => {
-                                let className;
-                                if (state === 'entered') {
-                                    className = 'rotation-center';
-                                } else if (state === 'exited') {
-                                    className = 'rotation-exit';
-                                } else if (state === 'exiting') {
-                                    className = direction === 'left' ? 'rotation-center-to-left' : 'rotation-center-to-right';
-                                } else if (state === 'entering') {
-                                    className = direction === 'left' ? 'rotation-right-to-center' : 'rotation-left-to-center';
+class PictureRotation extends React.Component {
+    onEnter = (node) => {
+        this.props.afterChange(window.parseInt(node.dataset.index));
+    }
+    render() {
+        const { children, index, direction } = this.props;
+        return (
+            <div className="picture-rotation">
+                {
+                    React.Children.map(children, (item, key) => (
+                        <Transition onEnter={this.onEnter} in={index === key} timeout={300}>
+                            {
+                                (state) => {
+                                    let className;
+                                    if (state === 'entered') {
+                                        className = 'rotation-center';
+                                    } else if (state === 'exited') {
+                                        className = 'rotation-exit';
+                                    } else if (state === 'exiting') {
+                                        className = direction === 'left' ? 'rotation-center-to-left' : 'rotation-center-to-right';
+                                    } else if (state === 'entering') {
+                                        className = direction === 'left' ? 'rotation-right-to-center' : 'rotation-left-to-center';
+                                    }
+                                    return (
+                                        <div data-index={key} className={`rotation-item ${className}`}>
+                                            {item}
+                                        </div>
+                                    );
                                 }
-                                return (
-                                    <div className={`rotation-item ${className}`}>
-                                        {item}
-                                    </div>
-                                );
                             }
-                        }
-                    </Transition>
-                ))
-            }
-        </div>
-    );
+                        </Transition>
+                    ))
+                }
+            </div>
+        );
+    }
 }
 
 PictureRotation.defaultProps = {
     children: '',
-    direction: 'left'
+    direction: 'left',
+    afterChange: () => {}
 };
 
 PictureRotation.propTypes = {
     children: PropTypes.node,
     index: PropTypes.number.isRequired,
-    direction: PropTypes.string
+    direction: PropTypes.string,
+    afterChange: PropTypes.func
 };
 
 export default PictureRotation;

@@ -19,58 +19,37 @@ export default class RotationMap extends React.Component {
             direction: ''
         };
     }
+    changeState = (index, direction) => {
+        this.props.beforeChange(this.state.index, index);
+        this.setState({ index, direction });
+    }
     arrowChangeState = (type) => {
         const { children } = this.props;
         const { index } = this.state;
-        let direction = '';
+        const len = children.length;
         switch (type) {
         case 'up':
-            direction = 'left';
-            if (index < children.length - 1) {
-                this.setState({
-                    index: index + 1,
-                    direction
-                });
-            } else if (index === children.length - 1) {
-                this.setState({
-                    index: 0,
-                    direction
-                });
-            }
+            this.changeState(index < len - 1 ? index + 1 : 0, 'left');
             break;
         case 'down':
-            direction = 'right';
-            if (index > 0) {
-                this.setState({
-                    index: index - 1,
-                    direction
-                });
-            } else if (index === 0) {
-                this.setState({
-                    index: children.length - 1,
-                    direction
-                });
-            }
+            this.changeState(index > 0 ? index - 1 : len - 1, 'right');
             break;
         default:
-            throw Error('轮播出现错误！');
+            throw Error('The carousel has an error!');
         }
     }
     choiceChangeState = (val) => {
+        const { children } = this.props;
         const { index } = this.state;
+        const len = children.length;
         if (index === val) return;
-        if (Object.prototype.toString.call(val) === '[object Number]') {
-            if (val >= 0 && val < this.props.children.length) {
-                this.setState({
-                    index: val,
-                    direction: index < val ? 'left' : 'right'
-                });
-            }
+        if (typeof val === 'number' && val >= 0 && val < len) {
+            this.changeState(val, index < val ? 'left' : 'right');
         }
     }
     render() {
         const { index, direction } = this.state;
-        const { children } = this.props;
+        const { children, afterChange } = this.props;
         const ChoiceNavProps = {
             choiceChangeState: this.choiceChangeState,
             num: children.length,
@@ -79,7 +58,7 @@ export default class RotationMap extends React.Component {
         return (
             <div className="react-rotation-map">
                 <ChoiceNav {...ChoiceNavProps} />
-                <PictureRotation direction={direction} index={index}>
+                <PictureRotation afterChange={afterChange} direction={direction} index={index}>
                     { children }
                 </PictureRotation>
                 <MovementArrows arrowChangeState={this.arrowChangeState} />
@@ -89,9 +68,13 @@ export default class RotationMap extends React.Component {
 }
 
 RotationMap.defaultProps = {
-    children: ''
+    children: '',
+    beforeChange: () => {},
+    afterChange: () => {}
 };
 
 RotationMap.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    beforeChange: PropTypes.func,
+    afterChange: PropTypes.func
 };
