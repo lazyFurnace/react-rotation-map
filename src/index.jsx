@@ -33,7 +33,12 @@ class App extends React.Component {
         const { carouselData } = this.state;
         return (
             <div className="root">
-                <RotationMap beforeChange={this.beforeChange} afterChange={this.afterChange}>
+                <RotationMap
+                    autoplay
+                    timeout={5000}
+                    beforeChange={this.beforeChange}
+                    afterChange={this.afterChange}
+                >
                     {
                         carouselData.map(item => <div key={item} alt={item} className={`react-rotation ${item}`} />)
                     }
