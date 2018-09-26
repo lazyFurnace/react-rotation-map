@@ -1,8 +1,10 @@
 /**
- * 轮播内容区域
- * @param {Node} children 需要轮播的内容
- * @param {Number} index 当前选中的页码
+ * 轮播图轮播内容区域，接收五个参数
+ * @param {Node} children 需要轮播的内容，使用该组件时传入
+ * @param {Function} afterChange 轮播动画结束后的回调函数
+ * @param {Number} index 当前显示内容的编号
  * @param {String} direction 需要切换轮播的方向
+ * @param {String} easing 控制轮播图的动画切换效果
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -11,6 +13,7 @@ import Transition from 'react-transition-group/Transition';
 import './pictureRotation.less';
 
 class PictureRotation extends React.Component {
+    // Transition 的方法，用于触发轮播动画结束后的回调函数
     onEntered = (node) => {
         this.props.afterChange(window.parseInt(node.dataset.index));
     }
@@ -64,9 +67,9 @@ PictureRotation.defaultProps = {
 
 PictureRotation.propTypes = {
     children: PropTypes.node,
-    index: PropTypes.number.isRequired,
     direction: PropTypes.string,
     afterChange: PropTypes.func,
+    index: PropTypes.number.isRequired,
     easing: PropTypes.string.isRequired
 };
 

@@ -1,8 +1,8 @@
 /**
- * 轮播图下侧的指示按钮
- * @param {Function} goTo 回调函数处理点击事件
- * @param {Number} num 一共多少个
- * @param {Number} index 当前是哪个
+ * 轮播图下方的指示按钮，接收三个 prop
+ * @param {Function} goTo 切换轮播图的回调函数，处理点击事件
+ * @param {Number} num 所需轮播内容的总数
+ * @param {Number} index 当前显示内容的编号
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -10,10 +10,16 @@ import PropTypes from 'prop-types';
 import './choiceNav.less';
 
 class ChoiceNav extends React.Component {
+    /**
+     * @param {Number} num 所需轮播内容的总数
+     * @return {Array} 返回生成的数组
+     * 通过 Array.fill 和 Array.map 方法生成一个有 num 项的数组
+     */
     createArray = (num) => {
         const navArray = new Array(num);
         return navArray.fill('').map((item, index) => item + index);
     }
+    // 指示按钮的点击事件将所点击按钮的序号传递给父组件
     navClick = (e) => {
         this.props.goTo(window.parseInt(e.target.dataset.key));
     }

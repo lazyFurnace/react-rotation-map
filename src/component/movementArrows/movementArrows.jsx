@@ -1,14 +1,15 @@
 /**
- * 左右翻页键
- * @param {Function} arrowChangeState 左右切换的回调函数
- * @param {Boolean} iconLeft 控制左翻页显示
- * @param {Boolean} iconRight 控制右翻页显示
+ * 轮播图左右的切换按钮，接收三个 prop
+ * @param {Function} goMove 左右切换的回调函数
+ * @param {Boolean} iconLeft 控制左切换显示
+ * @param {Boolean} iconRight 控制右切换显示
+ * iconLeft 和 iconRight 是为了以后手机端触滑动时显示切换按钮所预留的
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../../iconfont/iconfont.css';
 import './movementArrows.less';
+import '../../iconfont/iconfont.css';
 
 class MovementArrows extends React.Component {
     constructor(props) {
