@@ -25,11 +25,10 @@ class App extends React.Component {
         };
     }
     beforeChange = (from, to) => {
-        console.log(`beforeChange: ${from} ${to}`);
-        console.log(this.rotation);
+        document.getElementById('console').innerText = `beforeChange: ${from} to ${to}`;
     }
     afterChange = (current) => {
-        console.log(`afterChange: ${current}`);
+        document.getElementById('console').innerText = `afterChange: ${current}`;
     }
     render() {
         const { carouselData } = this.state;
@@ -38,7 +37,7 @@ class App extends React.Component {
                 <RotationMap
                     ref={this.rotation}
                     autoplay
-                    timeout={5000}
+                    timeout={2000}
                     dots
                     easing="linear"
                     beforeChange={this.beforeChange}
