@@ -31,21 +31,45 @@
 }
 
 @keyframes animation-center-to-left {
-    0% { left: 0; }
-    100% { left: -100%; }
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+    100% {
+        left: -20%;
+        opacity: 0.2;
+    }
 }
 
 @keyframes animation-right-to-center {
-    0% { left: 100%; }
-    100% { left: 0; }
+    0% {
+        left: 20%;
+        opacity: 0.2;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
 }
 
 @keyframes animation-center-to-right {
-    0% { left: 0; }
-    100% { left: 100%; }
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+    100% {
+        left: 20%;
+        opacity: 0.2;
+    }
 }
 
 @keyframes animation-left-to-center {
-    0% { left: -100%; }
-    100% { left: 0; }
+    0% {
+        left: -20%;
+        opacity: 0.2;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
 }

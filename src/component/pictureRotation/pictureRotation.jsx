@@ -15,7 +15,12 @@ class PictureRotation extends React.Component {
         this.props.afterChange(window.parseInt(node.dataset.index));
     }
     render() {
-        const { children, index, direction } = this.props;
+        const {
+            children,
+            index,
+            direction,
+            easing
+        } = this.props;
         return (
             <div className="picture-rotation">
                 {
@@ -23,18 +28,21 @@ class PictureRotation extends React.Component {
                         <Transition onEntered={this.onEntered} in={index === key} timeout={300}>
                             {
                                 (state) => {
-                                    let className;
-                                    if (state === 'entered') {
-                                        className = 'rotation-enter';
-                                    } else if (state === 'exited') {
-                                        className = 'rotation-exit';
-                                    } else if (state === 'exiting') {
-                                        className = direction === 'left' ? 'rotation-center-to-left' : 'rotation-center-to-right';
-                                    } else if (state === 'entering') {
-                                        className = direction === 'left' ? 'rotation-right-to-center' : 'rotation-left-to-center';
-                                    }
+                                    const className = {
+                                        entered: 'rotation-enter',
+                                        exited: 'rotation-exit',
+                                        entering: direction === 'left' ? 'rotation-right-to-center' : 'rotation-left-to-center',
+                                        exiting: direction === 'left' ? 'rotation-center-to-left' : 'rotation-center-to-right'
+                                    };
+                                    const style = {
+                                        animationTimingFunction: easing
+                                    };
                                     return (
-                                        <div data-index={key} className={`rotation-item ${className}`}>
+                                        <div
+                                            data-index={key}
+                                            style={style}
+                                            className={`rotation-item ${className[state]}`}
+                                        >
                                             {item}
                                         </div>
                                     );
@@ -58,7 +66,8 @@ PictureRotation.propTypes = {
     children: PropTypes.node,
     index: PropTypes.number.isRequired,
     direction: PropTypes.string,
-    afterChange: PropTypes.func
+    afterChange: PropTypes.func,
+    easing: PropTypes.string.isRequired
 };
 
 export default PictureRotation;

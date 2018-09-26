@@ -24,11 +24,11 @@ class MovementArrows extends React.Component {
             <div className="movement-arrows">
                 <button
                     className={`iconfont icon-arrow-left ${iconLeft ? 'active' : ''}`}
-                    onClick={() => this.props.arrowChangeState('down')}
+                    onClick={() => this.props.goMove('down')}
                 />
                 <button
                     className={`iconfont icon-arrow-right ${iconRight ? 'active' : ''}`}
-                    onClick={() => this.props.arrowChangeState('up')}
+                    onClick={() => this.props.goMove('up')}
                 />
             </div>
         );
@@ -36,7 +36,7 @@ class MovementArrows extends React.Component {
 }
 
 MovementArrows.propTypes = {
-    arrowChangeState: PropTypes.func.isRequired,
+    goMove: PropTypes.func.isRequired,
     iconLeft: PropTypes.bool,
     iconRight: PropTypes.bool
 };

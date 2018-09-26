@@ -61,7 +61,7 @@ export default class RotationMap extends React.Component {
     startAutoPlay = () => {
         const { autoplay, timeout } = this.state;
         if (this.clearInterval === undefined && autoplay && timeout) {
-            this.clearInterval = setInterval(() => this.arrowChangeState('up'), timeout);
+            this.clearInterval = setInterval(() => this.goMove('up'), timeout);
         }
     }
     stopAutoPlay = () => {
@@ -80,7 +80,7 @@ export default class RotationMap extends React.Component {
     /**
      * 轮播图轮播控制函数
      */
-    arrowChangeState = (type) => {
+    goMove = (type) => {
         const { children } = this.props;
         const { index } = this.state;
         const len = children.length;
@@ -95,7 +95,7 @@ export default class RotationMap extends React.Component {
             throw Error('The carousel has an error!');
         }
     }
-    choiceChangeState = (val) => {
+    goTo = (val) => {
         const { children } = this.props;
         const { index } = this.state;
         const len = children.length;
@@ -106,23 +106,37 @@ export default class RotationMap extends React.Component {
     }
     render() {
         const { index, direction } = this.state;
-        const { children, afterChange, dots } = this.props;
+        const {
+            children,
+            afterChange,
+            dots,
+            easing
+        } = this.props;
         const ChoiceNavProps = {
-            choiceChangeState: this.choiceChangeState,
+            goTo: this.goTo,
             num: children.length,
             index
         };
         return (
-            <div onMouseLeave={this.onMouseLeave} onMouseEnter={this.onMouseEnter} className="react-rotation-map">
+            <div
+                onMouseLeave={this.onMouseLeave}
+                onMouseEnter={this.onMouseEnter}
+                className="react-rotation-map"
+            >
                 {
                     dots && (
                         <React.Fragment>
                             <ChoiceNav {...ChoiceNavProps} />
-                            <MovementArrows arrowChangeState={this.arrowChangeState} />
+                            <MovementArrows goMove={this.goMove} />
                         </React.Fragment>
                     )
                 }
-                <PictureRotation afterChange={afterChange} direction={direction} index={index}>
+                <PictureRotation
+                    afterChange={afterChange}
+                    direction={direction}
+                    index={index}
+                    easing={easing}
+                >
                     { children }
                 </PictureRotation>
             </div>
@@ -136,7 +150,8 @@ RotationMap.defaultProps = {
     afterChange: () => {},
     autoplay: false,
     timeout: 3000,
-    dots: true
+    dots: true,
+    easing: 'linear'
 };
 
 RotationMap.propTypes = {
@@ -145,5 +160,6 @@ RotationMap.propTypes = {
     afterChange: PropTypes.func,
     autoplay: PropTypes.bool,
     timeout: PropTypes.number,
-    dots: PropTypes.bool
+    dots: PropTypes.bool,
+    easing: PropTypes.string
 };

@@ -12,6 +12,7 @@ if (module.hot) {
 class App extends React.Component {
     constructor(props) {
         super(props);
+        this.rotation = React.createRef();
         this.state = {
             carouselData: [
                 'Chaos-Warrior',
@@ -25,6 +26,7 @@ class App extends React.Component {
     }
     beforeChange = (from, to) => {
         console.log(`beforeChange: ${from} ${to}`);
+        console.log(this.rotation);
     }
     afterChange = (current) => {
         console.log(`afterChange: ${current}`);
@@ -34,9 +36,11 @@ class App extends React.Component {
         return (
             <div className="root">
                 <RotationMap
+                    ref={this.rotation}
                     autoplay
                     timeout={5000}
-                    dots={false}
+                    dots
+                    easing="linear"
                     beforeChange={this.beforeChange}
                     afterChange={this.afterChange}
                 >
