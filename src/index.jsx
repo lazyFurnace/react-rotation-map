@@ -36,6 +36,7 @@ class App extends React.Component {
                 <RotationMap
                     autoplay
                     timeout={5000}
+                    dots={false}
                     beforeChange={this.beforeChange}
                     afterChange={this.afterChange}
                 >

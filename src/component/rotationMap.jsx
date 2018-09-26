@@ -106,7 +106,7 @@ export default class RotationMap extends React.Component {
     }
     render() {
         const { index, direction } = this.state;
-        const { children, afterChange } = this.props;
+        const { children, afterChange, dots } = this.props;
         const ChoiceNavProps = {
             choiceChangeState: this.choiceChangeState,
             num: children.length,
@@ -114,8 +114,14 @@ export default class RotationMap extends React.Component {
         };
         return (
             <div onMouseLeave={this.onMouseLeave} onMouseEnter={this.onMouseEnter} className="react-rotation-map">
-                <ChoiceNav {...ChoiceNavProps} />
-                <MovementArrows arrowChangeState={this.arrowChangeState} />
+                {
+                    dots && (
+                        <React.Fragment>
+                            <ChoiceNav {...ChoiceNavProps} />
+                            <MovementArrows arrowChangeState={this.arrowChangeState} />
+                        </React.Fragment>
+                    )
+                }
                 <PictureRotation afterChange={afterChange} direction={direction} index={index}>
                     { children }
                 </PictureRotation>
@@ -129,7 +135,8 @@ RotationMap.defaultProps = {
     beforeChange: () => {},
     afterChange: () => {},
     autoplay: false,
-    timeout: 3000
+    timeout: 3000,
+    dots: true
 };
 
 RotationMap.propTypes = {
@@ -137,5 +144,6 @@ RotationMap.propTypes = {
     beforeChange: PropTypes.func,
     afterChange: PropTypes.func,
     autoplay: PropTypes.bool,
-    timeout: PropTypes.number
+    timeout: PropTypes.number,
+    dots: PropTypes.bool
 };
