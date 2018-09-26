@@ -2,8 +2,6 @@
 const path = require('path')
 // 不打包 node_module s里的文件
 const nodeExternals = require('webpack-node-externals')
-// 代码压缩
-const uglify = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry: path.join(__dirname, './src/index.assembly.jsx'),
@@ -35,10 +33,6 @@ module.exports = {
             }
         ]
     },
-    // 代码压缩
-    plugins:[
-        new uglify()
-    ],
     externals: [nodeExternals()],
     resolve: {
         extensions: ['.js', '.jsx']
