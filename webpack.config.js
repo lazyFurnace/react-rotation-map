@@ -16,8 +16,8 @@ module.exports = {
     entry: entryConfig,
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'index.js',
-        chunkFilename: '[name].js',
+        filename: 'index.[hash:8].js',
+        chunkFilename: '[name].[chunkhash:8].js',
         libraryTarget: 'umd'
     },
     module: {
@@ -78,7 +78,7 @@ module.exports = {
         // 启动路径
         contentBase: path.join(__dirname, 'dist'),
         // 域名
-        host: 'localhost',
+        host: '192.168.199.165',
         // 端口号
         port: 8018,
         hot: true
