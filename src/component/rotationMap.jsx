@@ -64,6 +64,10 @@ export default class RotationMap extends React.Component {
     onMouseEnter = () => {
         this.stopAutoPlay();
     }
+    // 轮播图组件上禁止 touch 事件
+    onTouchMove = (e) => {
+        e.preventDefault();
+    }
 
     beginAutoPlay = () => {
         const { autoplay, timeout } = this.state;
@@ -137,6 +141,7 @@ export default class RotationMap extends React.Component {
         };
         return (
             <div
+                onTouchMove={this.onTouchMove}
                 onMouseLeave={this.onMouseLeave}
                 onMouseEnter={this.onMouseEnter}
                 className="react-rotation-map"
