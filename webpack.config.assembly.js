@@ -1,6 +1,6 @@
 // 用于发布 npm 包的 webpack 配置文件
 const path = require('path')
-// 不打包 node_module s里的文件
+// 不打包 node_modules 里的文件
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {

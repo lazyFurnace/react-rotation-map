@@ -2,6 +2,7 @@ const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 // css样式规范检测工具
 const StyleLintPlugin = require('stylelint-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 let entryConfig = [];
 // 检测是不是开发环境，是的话有热加载
@@ -55,7 +56,8 @@ module.exports = {
             failOnError: false,
             quiet: true,
             syntax: 'less'
-        })
+        }),
+        new CleanWebpackPlugin(['dist'])
     ],
     optimization: {
         splitChunks: {

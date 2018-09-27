@@ -122,7 +122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".picture-rotation {\n  position: relative;\n  height: 100%;\n}\n.rotation-item {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  right: 0;\n  -webkit-transition: all .3s linear;\n  transition: all .3s linear;\n}\n.rotation-enter {\n  left: 0;\n}\n.rotation-exit {\n  display: none;\n}\n.rotation-center-to-left {\n  -webkit-animation: 0.3s animation-center-to-left;\n          animation: 0.3s animation-center-to-left;\n}\n.rotation-right-to-center {\n  -webkit-animation: 0.3s animation-right-to-center;\n          animation: 0.3s animation-right-to-center;\n}\n.rotation-center-to-right {\n  -webkit-animation: 0.3s animation-center-to-right;\n          animation: 0.3s animation-center-to-right;\n}\n.rotation-left-to-center {\n  -webkit-animation: 0.3s animation-left-to-center;\n          animation: 0.3s animation-left-to-center;\n}\n@-webkit-keyframes animation-center-to-left {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: -20%;\n    opacity: 0.2;\n  }\n}\n@keyframes animation-center-to-left {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: -20%;\n    opacity: 0.2;\n  }\n}\n@-webkit-keyframes animation-right-to-center {\n  0% {\n    left: 20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n@keyframes animation-right-to-center {\n  0% {\n    left: 20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n@-webkit-keyframes animation-center-to-right {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: 20%;\n    opacity: 0.2;\n  }\n}\n@keyframes animation-center-to-right {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: 20%;\n    opacity: 0.2;\n  }\n}\n@-webkit-keyframes animation-left-to-center {\n  0% {\n    left: -20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n@keyframes animation-left-to-center {\n  0% {\n    left: -20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n", ""]);
+exports.push([module.i, ".picture-rotation {\n  position: relative;\n  height: 100%;\n}\n.rotation-item {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-animation-fill-mode: forwards !important;\n          animation-fill-mode: forwards !important;\n}\n.rotation-enter {\n  left: 0;\n}\n.rotation-exit {\n  display: none;\n}\n.rotation-center-to-left {\n  -webkit-animation: 0.3s animation-center-to-left;\n          animation: 0.3s animation-center-to-left;\n}\n.rotation-right-to-center {\n  -webkit-animation: 0.3s animation-right-to-center;\n          animation: 0.3s animation-right-to-center;\n}\n.rotation-center-to-right {\n  -webkit-animation: 0.3s animation-center-to-right;\n          animation: 0.3s animation-center-to-right;\n}\n.rotation-left-to-center {\n  -webkit-animation: 0.3s animation-left-to-center;\n          animation: 0.3s animation-left-to-center;\n}\n@-webkit-keyframes animation-center-to-left {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: -20%;\n    opacity: 0.2;\n  }\n}\n@keyframes animation-center-to-left {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: -20%;\n    opacity: 0.2;\n  }\n}\n@-webkit-keyframes animation-right-to-center {\n  0% {\n    left: 20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n@keyframes animation-right-to-center {\n  0% {\n    left: 20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n@-webkit-keyframes animation-center-to-right {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: 20%;\n    opacity: 0.2;\n  }\n}\n@keyframes animation-center-to-right {\n  0% {\n    left: 0;\n    opacity: 1;\n  }\n  100% {\n    left: 20%;\n    opacity: 0.2;\n  }\n}\n@-webkit-keyframes animation-left-to-center {\n  0% {\n    left: -20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n@keyframes animation-left-to-center {\n  0% {\n    left: -20%;\n    opacity: 0.2;\n  }\n  100% {\n    left: 0;\n    opacity: 1;\n  }\n}\n", ""]);
 
 // exports
 
@@ -141,7 +141,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".react-rotation-map {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.react-rotation-map button {\n  margin: 0;\n  padding: 0;\n  border: 0;\n}\n", ""]);
+exports.push([module.i, ".react-rotation-map {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.react-rotation-map button {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -1397,6 +1397,10 @@ var RotationMap = function (_React$Component) {
             _this.stopAutoPlay();
         };
 
+        _this.onTouchMove = function (e) {
+            e.preventDefault();
+        };
+
         _this.beginAutoPlay = function () {
             var _this$state = _this.state,
                 autoplay = _this$state.autoplay,
@@ -1496,6 +1500,8 @@ var RotationMap = function (_React$Component) {
 
         // 鼠标移入轮播图范围时关闭定时器
 
+        // 轮播图组件上禁止 touch 事件
+
 
         /**
          * 抽象的轮播控制，调用这个函数来真正的修改 state 触发轮播图变化
@@ -1534,6 +1540,7 @@ var RotationMap = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 {
+                    onTouchMove: this.onTouchMove,
                     onMouseLeave: this.onMouseLeave,
                     onMouseEnter: this.onMouseEnter,
                     className: 'react-rotation-map'
