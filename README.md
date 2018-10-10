@@ -4,6 +4,10 @@
 
 ### 使用方法
 
+`npm install react-rotation-map -S` 直接引入 `react-rotation-map`
+
+### 安装方法
+
 `npm install` 安装 <br>
 `npm run start` 启动项目, 打开 `http://localhost:8018/` 访问 <br>
 `npm run build` 打包 <br>
