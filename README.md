@@ -1,10 +1,19 @@
-# react-rotation-map
-
-## React 轮播图组件
+# react-rotation-map 轮播图组件
 
 ### 使用方法
 
-`npm install react-rotation-map -S` 直接引入 `react-rotation-map`
+`npm install -save react-rotation-map`
+
+`import RotationMap from 'react-rotation-map';`
+
+```
+<RotationMap>
+    <div className='className'>1</div>
+    <div className='className'>2</div>
+    <div className='className'>3</div>
+    <div className='className'>4</div>
+</RotationMap>
+```
 
 ### 安装方法
 
