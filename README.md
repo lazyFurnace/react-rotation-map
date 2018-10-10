@@ -4,7 +4,7 @@
 
 `npm install -save react-rotation-map`
 
-`import RotationMap from 'react-rotation-map';`
+`import RotationMap from 'react-rotation-map'`
 
 ```
 <RotationMap>
