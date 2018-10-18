@@ -24,7 +24,9 @@ export default class RotationMap extends React.Component {
             index: 0,
             direction: '',
             autoplay: props.autoplay,
-            timeout: props.timeout
+            timeout: props.timeout,
+            iconLeft: false,
+            iconRight: false
         };
     }
     static getDerivedStateFromProps(nextProps) {
@@ -64,11 +66,52 @@ export default class RotationMap extends React.Component {
     onMouseEnter = () => {
         this.stopAutoPlay();
     }
-    // 轮播图组件上禁止 touch 事件
+    // 触摸滑动事件
     onTouchMove = (e) => {
-        e.preventDefault();
+        // 判断默认行为是否可以被禁用
+        if (e.cancelable) {
+            // 判断默认行为是否已经被禁用
+            if (!e.defaultPrevented) {
+                e.preventDefault();
+            }
+        }
+        // 滑动方向的箭头显示
+        const [touch] = e.nativeEvent.targetTouches;
+        const { pageX } = touch;
+        if (this.touchStart || this.touchStart === 0) {
+            let iconLeft = false;
+            let iconRight = false;
+            if (pageX - 10 > this.touchStart) {
+                iconLeft = true;
+            } else if (pageX + 10 < this.touchStart) {
+                iconRight = true;
+            }
+            this.setState({
+                iconLeft,
+                iconRight
+            });
+        }
     }
-
+    // 触摸开始时记录当前坐标
+    onTouchStart = (e) => {
+        this.stopAutoPlay();
+        this.touchStart = e.nativeEvent.targetTouches[0].pageX;
+    }
+    // 触摸结束时触发对应切换事件
+    onTouchEnd = () => {
+        this.beginAutoPlay();
+        this.touchStart = null;
+        const { iconLeft, iconRight } = this.state;
+        if (iconLeft) {
+            this.goMove('down');
+        } else if (iconRight) {
+            this.goMove('up');
+        }
+        this.setState({
+            iconLeft: false,
+            iconRight: false
+        });
+    }
     beginAutoPlay = () => {
         const { autoplay, timeout } = this.state;
         // autoplay 开启和 timeout 正确的情况下开启自动轮播定时器
@@ -127,7 +170,12 @@ export default class RotationMap extends React.Component {
         }
     }
     render() {
-        const { index, direction } = this.state;
+        const {
+            index,
+            direction,
+            iconLeft,
+            iconRight
+        } = this.state;
         const {
             children,
             afterChange,
@@ -141,6 +189,8 @@ export default class RotationMap extends React.Component {
         };
         return (
             <div
+                onTouchStart={this.onTouchStart}
+                onTouchEnd={this.onTouchEnd}
                 onTouchMove={this.onTouchMove}
                 onMouseLeave={this.onMouseLeave}
                 onMouseEnter={this.onMouseEnter}
@@ -150,7 +200,11 @@ export default class RotationMap extends React.Component {
                     dots && (
                         <React.Fragment>
                             <ChoiceNav {...ChoiceNavProps} />
-                            <MovementArrows goMove={this.goMove} />
+                            <MovementArrows
+                                iconLeft={iconLeft}
+                                iconRight={iconRight}
+                                goMove={this.goMove}
+                            />
                         </React.Fragment>
                     )
                 }

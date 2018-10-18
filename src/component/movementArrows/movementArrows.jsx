@@ -19,6 +19,12 @@ class MovementArrows extends React.Component {
             iconRight: props.iconRight
         };
     }
+    static getDerivedStateFromProps(nextProps) {
+        return {
+            iconLeft: nextProps.iconLeft,
+            iconRight: nextProps.iconRight
+        };
+    }
     render() {
         const { iconLeft, iconRight } = this.state;
         return (
@@ -44,7 +50,7 @@ MovementArrows.propTypes = {
 
 MovementArrows.defaultProps = {
     iconLeft: false,
-    iconRight: true
+    iconRight: false
 };
 
 export default MovementArrows;
