@@ -1,6 +1,6 @@
 {
   "name": "react-rotation-map",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "React Rotation",
   "main": "./main/react-rotation-map.js",
   "scripts": {

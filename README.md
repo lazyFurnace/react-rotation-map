@@ -1,4 +1,6 @@
-# react-rotation-map 轮播图组件
+# react-rotation-map
+
+这是一款基于 React 的轮播图组件，可以在 pc 和移动端使用
 
 ### 使用方法
 
