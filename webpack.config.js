@@ -57,7 +57,7 @@ module.exports = {
             quiet: true,
             syntax: 'less'
         }),
-        new CleanWebpackPlugin(['dist'])
+        process.env.NODE_ENV !== 'dev' ? new CleanWebpackPlugin(['dist']) : () => {}
     ],
     optimization: {
         splitChunks: {
