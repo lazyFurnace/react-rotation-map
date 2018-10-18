@@ -84,7 +84,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".choice-nav {\n  position: absolute;\n  z-index: 1000;\n  bottom: 0;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.choice-nav > button.choice-nav-btn {\n  width: 18px;\n  height: 3px;\n  margin: 10px 3px;\n  border-radius: 1px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background-color: #333;\n  opacity: 0.6;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.choice-nav .sel-nav.choice-nav-btn {\n  width: 25px;\n  background-color: #fff;\n}\n", ""]);
+exports.push([module.i, ".choice-nav {\n  position: absolute;\n  z-index: 1000;\n  bottom: 0;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.choice-nav > button.choice-nav-btn {\n  width: 18px;\n  height: 3px;\n  margin: 10px 3px;\n  border-radius: 1px;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  background-color: #333;\n  opacity: 0.6;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.choice-nav .sel-nav.choice-nav-btn {\n  width: 25px;\n  background-color: #fff;\n  border: 1px solid rgba(66, 66, 66, .5);\n}\n", ""]);
 
 // exports
 
@@ -103,7 +103,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".movement-arrows button.iconfont {\n  position: absolute;\n  top: 0;\n  z-index: 1000;\n  width: 10%;\n  height: 100%;\n  background: rgba(33, 33, 33, 0);\n  color: rgba(255, 255, 255, 0);\n  font-size: 32px;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.movement-arrows button.iconfont:hover,\n.movement-arrows button.iconfont:focus {\n  background: rgba(33, 33, 33, .1);\n  color: rgba(255, 255, 255, .5);\n}\n.movement-arrows button.iconfont:active,\n.movement-arrows button.iconfont .active {\n  background: rgba(33, 33, 33, .2);\n  color: rgba(255, 255, 255, .8);\n}\n.movement-arrows button.iconfont:first-child {\n  left: 0;\n}\n.movement-arrows button.iconfont:last-child {\n  right: 0;\n}\n", ""]);
+exports.push([module.i, ".movement-arrows button.iconfont {\n  position: absolute;\n  top: 0;\n  z-index: 1000;\n  width: 10%;\n  height: 100%;\n  background: rgba(33, 33, 33, 0);\n  color: rgba(255, 255, 255, 0);\n  font-size: 32px;\n  -webkit-transition: all 0.3s linear;\n  transition: all 0.3s linear;\n}\n.movement-arrows button.iconfont:hover,\n.movement-arrows button.iconfont:focus {\n  background: rgba(33, 33, 33, .1);\n  color: rgba(255, 255, 255, .5);\n}\n.movement-arrows button.iconfont:active,\n.movement-arrows button.iconfont.active {\n  background: rgba(33, 33, 33, .2);\n  color: rgba(255, 255, 255, .8);\n}\n.movement-arrows button.iconfont:first-child {\n  left: 0;\n}\n.movement-arrows button.iconfont:last-child {\n  right: 0;\n}\n", ""]);
 
 // exports
 
@@ -141,7 +141,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".react-rotation-map {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.react-rotation-map button {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: none;\n}\n", ""]);
+exports.push([module.i, ".react-rotation-map {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n  -ms-touch-action: none;\n      touch-action: none;\n}\n.react-rotation-map button {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -1067,6 +1067,14 @@ var MovementArrows = function (_React$Component) {
                 })
             );
         }
+    }], [{
+        key: 'getDerivedStateFromProps',
+        value: function getDerivedStateFromProps(nextProps) {
+            return {
+                iconLeft: nextProps.iconLeft,
+                iconRight: nextProps.iconRight
+            };
+        }
     }]);
     return MovementArrows;
 }(_react2.default.Component);
@@ -1079,7 +1087,7 @@ MovementArrows.propTypes = {
 
 MovementArrows.defaultProps = {
     iconLeft: false,
-    iconRight: true
+    iconRight: false
 };
 
 exports.default = MovementArrows;
@@ -1327,6 +1335,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _slicedToArray2 = __webpack_require__(/*! babel-runtime/helpers/slicedToArray */ "babel-runtime/helpers/slicedToArray");
+
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+
 var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ "babel-runtime/core-js/object/get-prototype-of");
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -1398,13 +1410,62 @@ var RotationMap = function (_React$Component) {
         };
 
         _this.onTouchMove = function (e) {
-            e.preventDefault();
+            // 判断默认行为是否可以被禁用
+            if (e.cancelable) {
+                // 判断默认行为是否已经被禁用
+                if (!e.defaultPrevented) {
+                    e.preventDefault();
+                }
+            }
+            // 滑动方向的箭头显示
+
+            var _e$nativeEvent$target = (0, _slicedToArray3.default)(e.nativeEvent.targetTouches, 1),
+                touch = _e$nativeEvent$target[0];
+
+            var pageX = touch.pageX;
+
+            if (_this.touchStart || _this.touchStart === 0) {
+                var iconLeft = false;
+                var iconRight = false;
+                if (pageX - 10 > _this.touchStart) {
+                    iconLeft = true;
+                } else if (pageX + 10 < _this.touchStart) {
+                    iconRight = true;
+                }
+                _this.setState({
+                    iconLeft: iconLeft,
+                    iconRight: iconRight
+                });
+            }
+        };
+
+        _this.onTouchStart = function (e) {
+            _this.stopAutoPlay();
+            _this.touchStart = e.nativeEvent.targetTouches[0].pageX;
+        };
+
+        _this.onTouchEnd = function () {
+            _this.beginAutoPlay();
+            _this.touchStart = null;
+            var _this$state = _this.state,
+                iconLeft = _this$state.iconLeft,
+                iconRight = _this$state.iconRight;
+
+            if (iconLeft) {
+                _this.goMove('down');
+            } else if (iconRight) {
+                _this.goMove('up');
+            }
+            _this.setState({
+                iconLeft: false,
+                iconRight: false
+            });
         };
 
         _this.beginAutoPlay = function () {
-            var _this$state = _this.state,
-                autoplay = _this$state.autoplay,
-                timeout = _this$state.timeout;
+            var _this$state2 = _this.state,
+                autoplay = _this$state2.autoplay,
+                timeout = _this$state2.timeout;
             // autoplay 开启和 timeout 正确的情况下开启自动轮播定时器
 
             if (_this.clearInterval === undefined && autoplay && timeout) {
@@ -1459,7 +1520,9 @@ var RotationMap = function (_React$Component) {
             index: 0,
             direction: '',
             autoplay: props.autoplay,
-            timeout: props.timeout
+            timeout: props.timeout,
+            iconLeft: false,
+            iconRight: false
         };
         return _this;
     }
@@ -1500,7 +1563,11 @@ var RotationMap = function (_React$Component) {
 
         // 鼠标移入轮播图范围时关闭定时器
 
-        // 轮播图组件上禁止 touch 事件
+        // 触摸滑动事件
+
+        // 触摸开始时记录当前坐标
+
+        // 触摸结束时触发对应切换事件
 
 
         /**
@@ -1525,7 +1592,9 @@ var RotationMap = function (_React$Component) {
         value: function render() {
             var _state = this.state,
                 index = _state.index,
-                direction = _state.direction;
+                direction = _state.direction,
+                iconLeft = _state.iconLeft,
+                iconRight = _state.iconRight;
             var _props2 = this.props,
                 children = _props2.children,
                 afterChange = _props2.afterChange,
@@ -1540,6 +1609,8 @@ var RotationMap = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 {
+                    onTouchStart: this.onTouchStart,
+                    onTouchEnd: this.onTouchEnd,
                     onTouchMove: this.onTouchMove,
                     onMouseLeave: this.onMouseLeave,
                     onMouseEnter: this.onMouseEnter,
@@ -1549,7 +1620,11 @@ var RotationMap = function (_React$Component) {
                     _react2.default.Fragment,
                     null,
                     _react2.default.createElement(_choiceNav2.default, ChoiceNavProps),
-                    _react2.default.createElement(_movementArrows2.default, { goMove: this.goMove })
+                    _react2.default.createElement(_movementArrows2.default, {
+                        iconLeft: iconLeft,
+                        iconRight: iconRight,
+                        goMove: this.goMove
+                    })
                 ),
                 _react2.default.createElement(
                     _pictureRotation2.default,
@@ -1769,6 +1844,17 @@ module.exports = require("babel-runtime/helpers/inherits");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/possibleConstructorReturn");
+
+/***/ }),
+
+/***/ "babel-runtime/helpers/slicedToArray":
+/*!******************************************************!*\
+  !*** external "babel-runtime/helpers/slicedToArray" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/slicedToArray");
 
 /***/ }),
 
