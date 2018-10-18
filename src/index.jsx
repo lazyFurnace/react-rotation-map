@@ -15,12 +15,11 @@ class App extends React.Component {
         this.rotation = React.createRef();
         this.state = {
             carouselData: [
-                'Chaos-Warrior',
-                'Cursed-Legion',
-                'Gray-Knight',
-                'Space-Wolf',
-                'Star-Warrior',
-                'Ultimate-Warrior'
+                'Angular',
+                'React',
+                'Vue',
+                'Webpack',
+                'Nodejs'
             ]
         };
     }
@@ -44,7 +43,11 @@ class App extends React.Component {
                     afterChange={this.afterChange}
                 >
                     {
-                        carouselData.map(item => <div key={item} alt={item} className={`react-rotation ${item}`} />)
+                        carouselData.map(item => (
+                            <div key={item} alt={item} className={`react-rotation ${item}`}>
+                                <h1>{item}</h1>
+                            </div>
+                        ))
                     }
                 </RotationMap>
             </div>
