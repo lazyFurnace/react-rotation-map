@@ -50,7 +50,7 @@ import RotationMap from 'react-rotation-map';
 
 ## ref 操作属性
 
-### 使用方法
+#### 使用方法
 
 使用 `React.createRef()` 创建 `ref`
 
@@ -70,7 +70,7 @@ constructor(props) {
 <RotationMap/>
 ```
 
-### 参数
+#### 参数
 
 使用 `this.rotation.current` 获取组件 <br>
 可使用方法共两个 `goTo` 和 `goMove` <br>
