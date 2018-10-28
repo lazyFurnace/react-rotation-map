@@ -1,23 +1,38 @@
-# react-rotation-map
+<h1 align="center">React Rotation Map</h1>
 
-这是一款基于 React 的轮播图组件，可以在 pc 和移动端使用
+### 简介
 
-### 使用方法
+这是一款基于 React 的轮播图组件，适用于电脑端及移动端。
 
-`npm install -save react-rotation-map`
+### 特性
 
-`import RotationMap from 'react-rotation-map'`
+- 可通过 ref 操作轮播显示。
+- 提供轮播执行动画前后的回调函数。
+- 支持移动端触摸事件。
 
+### 支持环境
+
+* 现在浏览器。
+* React v16.3 以上。
+
+### 安装
+
+```bash
+npm install react-rotation-map --save
 ```
+
+### 实例
+
+```jsx
+import RotationMap from 'react-rotation-map';
 <RotationMap>
-    <div className='className'>1</div>
-    <div className='className'>2</div>
-    <div className='className'>3</div>
-    <div className='className'>4</div>
+    <div className='className'>React</div>
+    <div className='className'>Vue</div>
+    <div className='className'>Angular</div>
 </RotationMap>
 ```
 
-### 安装方法
+### 本地开发
 
 `npm install` 安装 <br>
 `npm run start` 启动项目, 打开 `http://localhost:8018/` 访问 <br>
