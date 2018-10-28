@@ -1,7 +1,5 @@
 <h1 align="center">React Rotation Map</h1>
 
-## 简介
-
 这是一款基于 React 的轮播图组件，适用于电脑端及移动端。
 
 ## 特性
