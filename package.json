@@ -5,10 +5,10 @@
   "main": "./main/react-rotation-map.js",
   "scripts": {
     "build": "npx cross-env webpack --config webpack.config.js",
+    "build-publish": "npx cross-env webpack --config webpack.config.publish.js",
     "start": "npx cross-env NODE_ENV=dev webpack-dev-server --config webpack.config.js --color --progress --hot",
     "eslint": "npx cross-env eslint src/**/*.jsx",
-    "stylelint": "npx cross-env stylelint src/**/*.less",
-    "build-assembly": "npx cross-env webpack --config webpack.config.assembly.js"
+    "stylelint": "npx cross-env stylelint src/**/*.less"
   },
   "repository": {
     "type": "git",

@@ -1,20 +1,38 @@
-const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
-// css样式规范检测工具
-const StyleLintPlugin = require('stylelint-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-let entryConfig = [];
-// 检测是不是开发环境，是的话有热加载
-if (process.env.NODE_ENV === 'dev') {
-    // webpack/hot/only-dev-server 热加载配置，不要使用插件 webpack.HotModuleReplacementPlugin
-    entryConfig.push('webpack/hot/only-dev-server');
-};
+let entry = path.join(__dirname, './src/index.jsx');
+let plugins = [
+    new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: path.join(__dirname, './src/index.html')
+    }),
+    // css样式规范检测工具
+    new StyleLintPlugin({
+        context: "src",
+        configFile: path.resolve(__dirname, './stylelint.config.js'),
+        files: '**/*.less',
+        failOnError: false,
+        quiet: true,
+        syntax: 'less'
+    })
+]
 
-entryConfig.push(path.join(__dirname, './src/index.jsx'));
+if (process.env.NODE_ENV === 'dev') {
+    /**
+     * webpack/hot/only-dev-server 热加载配置
+     * 不要使用插件 webpack.HotModuleReplacementPlugin
+     * 页面会出现报错信息
+     */
+    entry = ['webpack/hot/only-dev-server', entry];
+} else {
+    plugins.push(new CleanWebpackPlugin(['dist']));
+}
 
 module.exports = {
-    entry: entryConfig,
+    entry,
     output: {
         path: path.join(__dirname, './dist'),
         filename: 'index.[hash:8].js',
@@ -43,22 +61,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new htmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.join(__dirname, './src/index.html')
-        }),
-        // css样式规范检测工具
-        new StyleLintPlugin({
-            context: "src",
-            configFile: path.resolve(__dirname, './stylelint.config.js'),
-            files: '**/*.less',
-            failOnError: false,
-            quiet: true,
-            syntax: 'less'
-        }),
-        process.env.NODE_ENV !== 'dev' ? new CleanWebpackPlugin(['dist']) : () => {}
-    ],
+    plugins,
     optimization: {
         splitChunks: {
             chunks: 'initial',
@@ -80,7 +83,7 @@ module.exports = {
         // 启动路径
         contentBase: path.join(__dirname, 'dist'),
         // 域名
-        host: '192.168.199.165',
+        host: 'localhost',
         // 端口号
         port: 8018,
         hot: true
