@@ -18,14 +18,13 @@ let plugins = [
         quiet: true,
         syntax: 'less'
     })
-]
+];
 
+/**
+ * - 开发模式启动 webpack/hot/only-dev-server 热加载配置，不要使用插件 webpack.HotModuleReplacementPlugin
+ * - 构建模式启动清理 dist 文件的插件
+ */
 if (process.env.NODE_ENV === 'dev') {
-    /**
-     * webpack/hot/only-dev-server 热加载配置
-     * 不要使用插件 webpack.HotModuleReplacementPlugin
-     * 页面会出现报错信息
-     */
     entry = ['webpack/hot/only-dev-server', entry];
 } else {
     plugins.push(new CleanWebpackPlugin(['dist']));
