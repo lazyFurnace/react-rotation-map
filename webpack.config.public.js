@@ -8,7 +8,7 @@ const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: path.join(__dirname, './src/public.jsx'),
+    entry: path.join(__dirname, './src/public.js'),
     output: {
         path: path.join(__dirname, './public'),
         filename: 'public.js',

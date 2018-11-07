@@ -1,3 +1,3 @@
-import RotationMap from './component/rotationMap';
+import RotationMap from './components/rotationMap';
 
 export default RotationMap;
