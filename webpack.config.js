@@ -79,11 +79,8 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     devServer: {
-        // 启动路径
         contentBase: path.join(__dirname, 'dist'),
-        // 域名
         host: 'localhost',
-        // 端口号
         port: 8018,
         hot: true
     },

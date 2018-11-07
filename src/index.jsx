@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 
 import './index.less';
 
-import RotationMap from './component/rotationMap';
+import RotationMap from './components/rotationMap';
 
 if (module.hot) {
     module.hot.accept();

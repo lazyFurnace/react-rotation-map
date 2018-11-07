@@ -8,10 +8,10 @@ const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: path.join(__dirname, './src/publish.jsx'),
+    entry: path.join(__dirname, './src/public.jsx'),
     output: {
-        path: path.join(__dirname, './publish'),
-        filename: 'publish.js',
+        path: path.join(__dirname, './public'),
+        filename: 'public.js',
         // 转化符合 commonjs 语法
         libraryTarget: 'commonjs2'
     },
@@ -36,7 +36,7 @@ module.exports = {
             loader: 'file-loader'
         }]
     },
-    plugins: [new CleanWebpackPlugin(['publish'])],
+    plugins: [new CleanWebpackPlugin(['public'])],
     externals: [nodeExternals()],
     resolve: {
         extensions: ['.js', '.jsx']
