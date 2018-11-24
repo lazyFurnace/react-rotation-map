@@ -7,10 +7,10 @@ function getEntry(env) {
     switch (env) {
         case "public":
             return path.join(__dirname, "../src/public.js");
-        case "dev":
-            return ['webpack/hot/only-dev-server', path.join(__dirname, '../src/index.jsx')];
         case "build":
             return path.join(__dirname, '../src/index.jsx');
+        case "dev":
+            return ['webpack/hot/only-dev-server', path.join(__dirname, '../src/index.jsx')];
         default:
             throw new Error("环境变量错误");
     }
