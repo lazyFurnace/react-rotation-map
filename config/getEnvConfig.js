@@ -1,11 +1,12 @@
 /**
  * webpack 公共配置获取
  * 根据不同的环境变量配置
- * [public | build | dev]
+ * [lib | build | dev]
  */
 const path = require("path");
+const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const defaultCongif = require('./default');
+const defaultCongif = require('./defaultConfig');
 
 /**
  * 获取 webpack 入口文件
@@ -13,7 +14,7 @@ const defaultCongif = require('./default');
  */
 function entry(env) {
     const entryConfig = {
-        public: path.join(__dirname, "../src/public.js"),
+        lib: path.join(__dirname, "../src/lib.js"),
         build: path.join(__dirname, '../src/index.jsx'),
         dev: [
             'webpack/hot/only-dev-server',
@@ -22,15 +23,16 @@ function entry(env) {
     }
     return entryConfig[env];
 }
+
 /**
  * 获取 webpack 出口文件
  * @param {String} env 环境变量
  */
 function output(env) {
     const outputConfig = {
-        public: {
-            path: path.join(__dirname, '../public'),
-            filename: 'public.js',
+        lib: {
+            path: path.join(__dirname, '../lib'),
+            filename: 'lib.js',
             libraryTarget: 'commonjs2'
         },
         build: {
@@ -47,6 +49,7 @@ function output(env) {
     }
     return outputConfig[env];
 }
+
 /**
  * 获取 webpack 插件配置
  * @param {String} env 环境变量
@@ -54,8 +57,8 @@ function output(env) {
 function plugins(env) {
     const rootPath = path.join(__dirname, "../");
     const pluginsConfig = {
-        public: [
-            new CleanWebpackPlugin(['public'], { root: rootPath })
+        lib: [
+            new CleanWebpackPlugin(['lib'], { root: rootPath })
         ],
         build: [
             ...defaultCongif.plugins,
@@ -68,5 +71,13 @@ function plugins(env) {
     return pluginsConfig[env];
 }
 
+/**
+ * 构建 package 代码所依赖配置
+ * webpack-node-externals - 排除 node_modules 内代码
+ */
+function externals() {
+    return [nodeExternals()]
+}
 
-module.exports = { entry, output, plugins };
+
+module.exports = { entry, output, plugins, externals };
