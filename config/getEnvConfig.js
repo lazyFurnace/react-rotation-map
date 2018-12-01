@@ -32,7 +32,7 @@ function output(env) {
     const outputConfig = {
         lib: {
             path: path.join(__dirname, '../lib'),
-            filename: 'lib.js',
+            filename: 'index.js',
             libraryTarget: 'commonjs2'
         },
         build: {
