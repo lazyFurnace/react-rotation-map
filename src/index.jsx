@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import RotationMap from '$components/rotationMap';
 
 import './index.less';
-
-import RotationMap from './components/rotationMap';
 
 if (module.hot) {
     module.hot.accept();

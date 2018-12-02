@@ -9,6 +9,7 @@ function getWebpackConfig(env) {
     /**
      * webpack 配置文件所需要的各个属性模块
      * @property common - 所有配置都需要的模块
+     * @property build - 构建环境所需模块
      * @property dev - 开发环境所需模块
      * @property lib - 构建开源代码所需模块
      */

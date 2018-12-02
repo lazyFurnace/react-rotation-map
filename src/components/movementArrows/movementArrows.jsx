@@ -7,9 +7,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import '$static/font/iconfont.css';
 
 import './movementArrows.less';
-import '../../font/iconfont.css';
 
 class MovementArrows extends React.Component {
     constructor(props) {

@@ -12,6 +12,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+const { alias } = require('./baseConfig');
+
 module.exports = {
     module: {
         rules: [
@@ -28,7 +30,7 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             }, {
                 test: /\.(png|jpg|gif|svg)$/,
-                use: [{ loader: 'url-loader' }]
+                loader: 'url-loader'
             }, {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
                 loader: 'file-loader'
@@ -70,7 +72,8 @@ module.exports = {
         hot: true
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        alias
     },
     mode: 'development',
     devtool: 'inline-source-map'
