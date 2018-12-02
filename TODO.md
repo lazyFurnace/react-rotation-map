@@ -3,8 +3,8 @@
 - [X] 移动端滑动事件
 - [X] webpack.config.js 整合
 - [X] webpack.config.js 重写
-- [ ] 增加 jsconfig 配置编译器路径
-- [ ] 增加 webpack alias 配置路径
+- [X] 增加 jsconfig 配置编译器路径
+- [X] 增加 webpack alias 配置路径
 - [ ] 增加 webpack 自动打开插件 OpenBrowserWebpackPlugin
 - [ ] 添加获取本机 ip 函数
 - [ ] 增加 build 下代码压缩
