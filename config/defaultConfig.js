@@ -13,6 +13,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const { alias } = require('./baseConfig');
+const { host, port } = require('./getDevServer');
 
 module.exports = {
     module: {
@@ -67,9 +68,9 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        host: 'localhost',
-        port: 8018,
-        hot: true
+        hot: true,
+        host,
+        port
     },
     resolve: {
         extensions: ['.js', '.jsx'],
