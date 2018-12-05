@@ -6,10 +6,9 @@
 const path = require("path");
 const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const defaultCongif = require('./defaultConfig');
-const { host, port } = require('./getDevServer');
+
 /**
  * 获取 webpack 入口文件
  * @param {String} env 环境变量
@@ -67,8 +66,7 @@ function plugins(env) {
             new CleanWebpackPlugin(['dist'], { root: rootPath })
         ],
         dev: [
-            ...defaultCongif.plugins,
-            new OpenBrowserPlugin({ url: `http://${host}:${port}` })
+            ...defaultCongif.plugins
         ]
     }
     return pluginsConfig[env];
