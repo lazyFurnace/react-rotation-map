@@ -1,15 +1,29 @@
-/**
- * 轮播图下方的指示按钮，接收三个 prop
- * @param {Function} goTo 切换轮播图的回调函数，处理点击事件
- * @param {Number} num 所需轮播内容的总数
- * @param {Number} index 当前显示内容的编号
- */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import './choiceNav.less';
 
-class ChoiceNav extends React.Component {
+/**
+ * ChoiceNav component - 指示按钮组件
+ * @class ChoiceNav
+ * @classdesc 轮播图下方的指示按钮组件
+ * @extends React.Component<ChoiceNav.props>
+ * @property {ChoiceNav.props} props
+ */
+
+/**
+ * @typedef {Object} ChoiceNav.props
+ * @property {function} goTo - 切换轮播图的回调函数，处理点击事件
+ * @property {number} num - 所需轮播内容的总数
+ * @property {number} index - 当前显示内容的编号
+ */
+
+export default class ChoiceNav extends React.Component {
+    static propTypes = {
+        goTo: PropTypes.func.isRequired,
+        num: PropTypes.number.isRequired,
+        index: PropTypes.number.isRequired
+    }
     /**
      * @param {Number} num 所需轮播内容的总数
      * @return {Array} 返回生成的数组
@@ -41,11 +55,3 @@ class ChoiceNav extends React.Component {
         );
     }
 }
-
-ChoiceNav.propTypes = {
-    goTo: PropTypes.func.isRequired,
-    num: PropTypes.number.isRequired,
-    index: PropTypes.number.isRequired
-};
-
-export default ChoiceNav;

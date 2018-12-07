@@ -10,14 +10,14 @@ import './rotation.less';
 /**
  * Rotation component - 轮播图组件
  * @class Rotation
- * @classdesc Rotation 是轮播图组件的外层组件，用于导出使用整体轮播图
- * @extends React.Component<Avatar.props,Avatar.state>
- * @property {Avatar.props} props
- * @property {Avatar.state} state
+ * @classdesc 轮播图组件的外层组件，用于组合整体轮播图
+ * @extends React.Component<Rotation.props,Rotation.state>
+ * @property {Rotation.props} props
+ * @property {Rotation.state} state
  */
 
 /**
- * @typedef {Object} Avatar.props
+ * @typedef {Object} Rotation.props
  * @property {node} children - 传入所需要轮播的内容
  * @property {boolean} autoplay - 是否自动轮播
  * @property {number} timeout - 轮播间隔
@@ -28,10 +28,13 @@ import './rotation.less';
  */
 
 /**
- * @typedef {Object} Avatar.state
- * @property {boolean} loading - Avatar image is loading.
- * @property {boolean} loaded - Avatar image is loaded.
- * @property {string} src - Avatar image resize url.
+ * @typedef {Object} Rotation.state
+ * @property {number} index - 轮播图轮播位置
+ * @property {string} direction - 轮播图轮播方向
+ * @property {boolean} autoplay - 是否自动轮播
+ * @property {number} timeout - 轮播间隔
+ * @property {boolean} iconLeft - 左切换箭头
+ * @property {boolean} iconRight - 右切换箭头
  */
 
 export default class Rotation extends React.Component {
@@ -53,7 +56,6 @@ export default class Rotation extends React.Component {
         beforeChange: () => { },
         afterChange: () => { }
     }
-
     constructor(props) {
         super(props);
         this.state = {
@@ -65,7 +67,6 @@ export default class Rotation extends React.Component {
             iconRight: false
         };
     }
-
     static getDerivedStateFromProps(nextProps) {
         return {
             autoplay: nextProps.autoplay,
@@ -94,7 +95,6 @@ export default class Rotation extends React.Component {
     componentWillUnmount() {
         this.stopAutoPlay();
     }
-
     // 鼠标移出轮播图范围时开启定时器
     onMouseLeave = () => {
         this.beginAutoPlay();
@@ -162,7 +162,6 @@ export default class Rotation extends React.Component {
             this.clearInterval = undefined;
         }
     }
-
     /**
      * 抽象的轮播控制，调用这个函数来真正的修改 state 触发轮播图变化
      * @param {Number} index 轮播图内容的序号
@@ -257,4 +256,3 @@ export default class Rotation extends React.Component {
         );
     }
 }
-

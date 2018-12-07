@@ -8,7 +8,7 @@
 - [X] 增加 webpack 自动打开插件 OpenBrowserWebpackPlugin
 - [X] 添加获取本机 ip 函数
 - [X] 增加 build 下代码压缩
-- [ ] 按照规范重写注释
-- [ ] 新增渐隐/切换两种过度动画效果
+- [X] 按照规范重写注释
+- [ ] 新增渐隐/切换两种过度动画效果 & 重构项目代码
 - [ ] 增加 gh-pages 分支
 - [ ] README 重写
