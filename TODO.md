@@ -7,7 +7,7 @@
 - [X] 增加 webpack alias 配置路径
 - [X] 增加 webpack 自动打开插件 OpenBrowserWebpackPlugin
 - [X] 添加获取本机 ip 函数
-- [ ] 增加 build 下代码压缩
+- [X] 增加 build 下代码压缩
 - [ ] 按照规范重写注释
 - [ ] 新增渐隐/切换两种过度动画效果
 - [ ] 增加 gh-pages 分支

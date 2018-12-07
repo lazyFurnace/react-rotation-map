@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import RotationMap from '$components/rotationMap';
+import Rotation from '$components/rotation';
 
 import './index.less';
 
@@ -32,7 +32,7 @@ class App extends React.Component {
         const { carouselData } = this.state;
         return (
             <div className="root">
-                <RotationMap
+                <Rotation
                     ref={this.rotation}
                     autoplay
                     timeout={3000}
@@ -48,7 +48,7 @@ class App extends React.Component {
                             </div>
                         ))
                     }
-                </RotationMap>
+                </Rotation>
             </div>
         );
     }

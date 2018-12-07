@@ -22,12 +22,12 @@ npm install react-rotation-map --save
 ## 实例
 
 ```jsx
-import RotationMap from 'react-rotation-map';
-<RotationMap>
+import Rotation from 'react-rotation-map';
+<Rotation>
     <div className='className'>React</div>
     <div className='className'>Vue</div>
     <div className='className'>Angular</div>
-</RotationMap>
+</Rotation>
 ```
 
 ## 本地开发
@@ -65,9 +65,9 @@ constructor(props) {
 将创建的 `rotation` 放入组件中 
 
 ```jsx
-<RotationMap ref={this.rotation}>
+<Rotation ref={this.rotation}>
     ...
-<RotationMap/>
+<Rotation/>
 ```
 
 #### 参数
@@ -81,7 +81,7 @@ constructor(props) {
 ## 实例
 
 ```jsx
-<RotationMap
+<Rotation
     ref={this.rotation}
     autoplay
     timeout={2000}
@@ -91,7 +91,7 @@ constructor(props) {
     afterChange={this.afterChange}
 >
     ...
-</RotationMap>
+</Rotation>
 ```
 
 `ref` 操作 <br>

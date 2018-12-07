@@ -1,13 +1,3 @@
-/**
- * 轮播图插件的父组件
- * @param {Node} children 需要轮播的内容
- * @param {Function} beforeChange 切换动画之前的回调函数
- * @param {Function} afterChange 切换动画之后的回调函数
- * @param {Boolean} autoplay 是否自动轮播
- * @param {Number} timeout 轮播的时间差
- * @param {Boolean} dots 是否显示指示条及切换按钮
- * @param {String} easing 动画切换效果
- */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -15,9 +5,55 @@ import ChoiceNav from './choiceNav';
 import MovementArrows from './movementArrows';
 import PictureRotation from './pictureRotation';
 
-import './rotationMap.less';
+import './rotation.less';
 
-export default class RotationMap extends React.Component {
+/**
+ * Rotation component - 轮播图组件
+ * @class Rotation
+ * @classdesc Rotation 是轮播图组件的外层组件，用于导出使用整体轮播图
+ * @extends React.Component<Avatar.props,Avatar.state>
+ * @property {Avatar.props} props
+ * @property {Avatar.state} state
+ */
+
+/**
+ * @typedef {Object} Avatar.props
+ * @property {node} children - 传入所需要轮播的内容
+ * @property {boolean} autoplay - 是否自动轮播
+ * @property {number} timeout - 轮播间隔
+ * @property {boolean} dots - 是否显示控件
+ * @property {string} easing - 动画切换效果
+ * @property {function} beforeChange 切换动画之前的回调函数
+ * @property {function} afterChange 切换动画之后的回调函数
+ */
+
+/**
+ * @typedef {Object} Avatar.state
+ * @property {boolean} loading - Avatar image is loading.
+ * @property {boolean} loaded - Avatar image is loaded.
+ * @property {string} src - Avatar image resize url.
+ */
+
+export default class Rotation extends React.Component {
+    static propTypes = {
+        children: PropTypes.node,
+        autoplay: PropTypes.bool,
+        timeout: PropTypes.number,
+        dots: PropTypes.bool,
+        easing: PropTypes.string,
+        beforeChange: PropTypes.func,
+        afterChange: PropTypes.func
+    }
+    static defaultProps = {
+        children: '',
+        autoplay: false,
+        timeout: 3000,
+        dots: true,
+        easing: 'linear',
+        beforeChange: () => { },
+        afterChange: () => { }
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -29,6 +65,7 @@ export default class RotationMap extends React.Component {
             iconRight: false
         };
     }
+
     static getDerivedStateFromProps(nextProps) {
         return {
             autoplay: nextProps.autoplay,
@@ -214,29 +251,10 @@ export default class RotationMap extends React.Component {
                     index={index}
                     easing={easing}
                 >
-                    { children }
+                    {children}
                 </PictureRotation>
             </div>
         );
     }
 }
 
-RotationMap.defaultProps = {
-    children: '',
-    beforeChange: () => {},
-    afterChange: () => {},
-    autoplay: false,
-    timeout: 3000,
-    dots: true,
-    easing: 'linear'
-};
-
-RotationMap.propTypes = {
-    children: PropTypes.node,
-    beforeChange: PropTypes.func,
-    afterChange: PropTypes.func,
-    autoplay: PropTypes.bool,
-    timeout: PropTypes.number,
-    dots: PropTypes.bool,
-    easing: PropTypes.string
-};
