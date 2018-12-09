@@ -10,26 +10,41 @@
     left: 0;
     animation-fill-mode: forwards !important;
 }
+.rotation-linear {
+    animation-timing-function: linear;
+}
+.rotation-ease {
+    animation-timing-function: ease;
+}
+.rotation-ease-in {
+    animation-timing-function: ease-in;
+}
+.rotation-ease-out {
+    animation-timing-function: ease-out;
+}
+.rotation-ease-in-out {
+    animation-timing-function: ease-in-out;
+}
 .rotation-enter {
     left: 0;
 }
 .rotation-exit {
     display: none;
 }
-.rotation-center-to-left {
-    animation: 0.3s animation-center-to-left;
+.rotation-exit-left {
+    animation: 0.3s animation-exit-left;
 }
-.rotation-right-to-center {
-    animation: 0.3s animation-right-to-center;
+.rotation-enter-left {
+    animation: 0.3s animation-enter-left;
 }
-.rotation-center-to-right {
-    animation: 0.3s animation-center-to-right;
+.rotation-exit-right {
+    animation: 0.3s animation-exit-right;
 }
-.rotation-left-to-center {
-    animation: 0.3s animation-left-to-center;
+.rotation-enter-right {
+    animation: 0.3s animation-enter-right;
 }
 
-@keyframes animation-center-to-left {
+@keyframes animation-exit-left {
     0% {
         left: 0;
         opacity: 1;
@@ -40,7 +55,7 @@
     }
 }
 
-@keyframes animation-right-to-center {
+@keyframes animation-enter-left {
     0% {
         left: 20%;
         opacity: 0.2;
@@ -51,7 +66,7 @@
     }
 }
 
-@keyframes animation-center-to-right {
+@keyframes animation-exit-right {
     0% {
         left: 0;
         opacity: 1;
@@ -62,7 +77,7 @@
     }
 }
 
-@keyframes animation-left-to-center {
+@keyframes animation-enter-right {
     0% {
         left: -20%;
         opacity: 0.2;

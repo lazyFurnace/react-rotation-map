@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Transition from 'react-transition-group/Transition';
 
 import './pictureRotation.less';
@@ -32,7 +33,7 @@ export default class PictureRotation extends React.Component {
     static defaultProps = {
         children: '',
         direction: 'left',
-        afterChange: () => {}
+        afterChange: () => { }
     };
     // Transition 的方法，用于触发轮播动画结束后的回调函数
     onEntered = (node) => {
@@ -49,29 +50,31 @@ export default class PictureRotation extends React.Component {
             <div className="picture-rotation">
                 {
                     React.Children.map(children, (item, key) => (
-                        <Transition onEntered={this.onEntered} in={index === key} timeout={300}>
-                            {
-                                (state) => {
-                                    const className = {
-                                        entered: 'rotation-enter',
-                                        exited: 'rotation-exit',
-                                        entering: direction === 'left' ? 'rotation-right-to-center' : 'rotation-left-to-center',
-                                        exiting: direction === 'left' ? 'rotation-center-to-left' : 'rotation-center-to-right'
-                                    };
-                                    const style = {
-                                        animationTimingFunction: easing
-                                    };
-                                    return (
-                                        <div
-                                            data-index={key}
-                                            style={style}
-                                            className={`rotation-item ${className[state]}`}
-                                        >
-                                            {item}
-                                        </div>
-                                    );
-                                }
-                            }
+                        <Transition
+                            onEntered={this.onEntered}
+                            in={index === key}
+                            timeout={300}
+                        >
+                            {(state) => {
+                                const className = {
+                                    entered: 'rotation-enter',
+                                    exited: 'rotation-exit',
+                                    entering: `rotation-enter-${direction}`,
+                                    exiting: `rotation-exit-${direction}`
+                                };
+                                return (
+                                    <div
+                                        data-index={key}
+                                        className={classNames(
+                                            'rotation-item',
+                                            className[state],
+                                            `rotation-${easing}`
+                                        )}
+                                    >
+                                        {item}
+                                    </div>
+                                );
+                            }}
                         </Transition>
                     ))
                 }

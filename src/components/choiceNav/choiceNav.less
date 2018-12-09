@@ -5,8 +5,7 @@
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    // 切换按钮默认状态
-    > button.choice-nav-btn {
+    .choice-nav-btn {
         width: 18px;
         height: 3px;
         margin: 10px 3px;
@@ -16,10 +15,8 @@
         opacity: 0.6;
         transition: all 0.3s linear;
     }
-    // 切换按钮选中状态
-    .sel-nav.choice-nav-btn {
+    .sel-nav {
         width: 25px;
-        background-color: #fff;
-        border: 1px solid rgba(66, 66, 66, 0.5);
+        background-color: #ddd;
     }
 }

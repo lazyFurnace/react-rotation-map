@@ -105,13 +105,6 @@ export default class Rotation extends React.Component {
     }
     // 触摸滑动事件
     onTouchMove = (e) => {
-        // 判断默认行为是否可以被禁用
-        if (e.cancelable) {
-            // 判断默认行为是否已经被禁用
-            if (!e.defaultPrevented) {
-                e.preventDefault();
-            }
-        }
         // 滑动方向的箭头显示
         const [touch] = e.nativeEvent.targetTouches;
         const { pageX } = touch;
@@ -218,31 +211,30 @@ export default class Rotation extends React.Component {
             dots,
             easing
         } = this.props;
-        const ChoiceNavProps = {
-            goTo: this.goTo,
-            num: children.length,
-            index
-        };
         return (
             <div
+                className="react-rotation-map"
                 onTouchStart={this.onTouchStart}
                 onTouchEnd={this.onTouchEnd}
                 onTouchMove={this.onTouchMove}
                 onMouseLeave={this.onMouseLeave}
                 onMouseEnter={this.onMouseEnter}
-                className="react-rotation-map"
             >
                 {
-                    dots && (
-                        <React.Fragment>
-                            <ChoiceNav {...ChoiceNavProps} />
-                            <MovementArrows
-                                iconLeft={iconLeft}
-                                iconRight={iconRight}
-                                goMove={this.goMove}
-                            />
-                        </React.Fragment>
-                    )
+                    dots ? [
+                        <ChoiceNav
+                            key="choice-nav"
+                            index={index}
+                            num={children.length}
+                            goTo={this.goTo}
+                        />,
+                        <MovementArrows
+                            key="movement-arrows"
+                            iconLeft={iconLeft}
+                            iconRight={iconRight}
+                            goMove={this.goMove}
+                        />
+                    ] : null
                 }
                 <PictureRotation
                     afterChange={afterChange}

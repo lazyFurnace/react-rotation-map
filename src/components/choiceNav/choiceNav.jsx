@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import './choiceNav.less';
 
@@ -30,24 +31,30 @@ export default class ChoiceNav extends React.Component {
      * 通过 Array.fill 和 Array.map 方法生成一个有 num 项的数组
      */
     createArray = (num) => {
-        const navArray = new Array(num);
-        return navArray.fill('').map((item, index) => item + index);
+        const navArray = [];
+        for (let i = 0; i < num; i += 1) {
+            navArray[i] = `${i}`;
+        }
+        return navArray;
     }
     // 指示按钮的点击事件将所点击按钮的序号传递给父组件
-    navClick = (e) => {
-        this.props.goTo(window.parseInt(e.target.dataset.key));
+    navClick = index => () => {
+        this.props.goTo(index);
     }
     render() {
+        const { navClick, createArray } = this;
         const { num, index } = this.props;
         return (
             <div className="choice-nav">
                 {
-                    this.createArray(num).map((item, key) => (
+                    createArray(num).map((item, key) => (
                         <button
-                            onClick={this.navClick}
-                            data-key={key}
-                            className={`choice-nav-btn ${key === index ? 'sel-nav' : ''}`}
-                            key={`${item}`}
+                            key={item}
+                            onClick={navClick(key)}
+                            className={classNames(
+                                'choice-nav-btn',
+                                { 'sel-nav': key === index }
+                            )}
                         />
                     ))
                 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import '$static/font/iconfont.css';
 
 import './movementArrows.less';
@@ -49,17 +50,28 @@ export default class MovementArrows extends React.Component {
             iconRight: nextProps.iconRight
         };
     }
+    handleClick = type => () => {
+        this.props.goMove(type);
+    }
     render() {
         const { iconLeft, iconRight } = this.state;
         return (
             <div className="movement-arrows">
                 <button
-                    className={`iconfont icon-arrow-left ${iconLeft ? 'active' : ''}`}
-                    onClick={() => this.props.goMove('down')}
+                    onClick={this.handleClick('down')}
+                    className={classNames(
+                        'iconfont',
+                        'icon-arrow-left',
+                        { active: iconLeft }
+                    )}
                 />
                 <button
-                    className={`iconfont icon-arrow-right ${iconRight ? 'active' : ''}`}
-                    onClick={() => this.props.goMove('up')}
+                    onClick={this.handleClick('up')}
+                    className={classNames(
+                        'iconfont',
+                        'icon-arrow-right',
+                        { active: iconRight }
+                    )}
                 />
             </div>
         );
