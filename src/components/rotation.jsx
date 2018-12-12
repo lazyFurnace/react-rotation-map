@@ -22,7 +22,8 @@ import './rotation.less';
  * @property {boolean} autoplay - 是否自动轮播
  * @property {number} timeout - 轮播间隔
  * @property {boolean} dots - 是否显示控件
- * @property {string} easing - 动画切换效果
+ * @property {string} easing - 控制轮播图的动画速度效果
+ * @property {string} effect - 控制轮播图的动画切换效果
  * @property {function} beforeChange 切换动画之前的回调函数
  * @property {function} afterChange 切换动画之后的回调函数
  */
@@ -44,6 +45,7 @@ export default class Rotation extends React.Component {
         timeout: PropTypes.number,
         dots: PropTypes.bool,
         easing: PropTypes.string,
+        effect: PropTypes.string,
         beforeChange: PropTypes.func,
         afterChange: PropTypes.func
     }
@@ -53,6 +55,7 @@ export default class Rotation extends React.Component {
         timeout: 3000,
         dots: true,
         easing: 'linear',
+        effect: 'scroll',
         beforeChange: () => { },
         afterChange: () => { }
     }
@@ -212,7 +215,8 @@ export default class Rotation extends React.Component {
             children,
             afterChange,
             dots,
-            easing
+            easing,
+            effect
         } = this.props;
         return (
             <div
@@ -244,6 +248,7 @@ export default class Rotation extends React.Component {
                     direction={direction}
                     index={index}
                     easing={easing}
+                    effect={effect}
                 >
                     {children}
                 </PictureRotation>

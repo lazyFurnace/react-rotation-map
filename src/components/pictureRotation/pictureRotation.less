@@ -10,6 +10,8 @@
     left: 0;
     animation-fill-mode: forwards !important;
 }
+
+// 过渡动画
 .rotation-linear {
     animation-timing-function: linear;
 }
@@ -31,20 +33,22 @@
 .rotation-exit {
     display: none;
 }
-.rotation-exit-left {
-    animation: 0.3s animation-exit-left;
+
+// 混合切换效果
+.rotation-exit-left-mix {
+    animation: 0.3s animation-exit-left-mix;
 }
-.rotation-enter-left {
-    animation: 0.3s animation-enter-left;
+.rotation-enter-left-mix {
+    animation: 0.3s animation-enter-left-mix;
 }
-.rotation-exit-right {
-    animation: 0.3s animation-exit-right;
+.rotation-exit-right-mix {
+    animation: 0.3s animation-exit-right-mix;
 }
-.rotation-enter-right {
-    animation: 0.3s animation-enter-right;
+.rotation-enter-right-mix {
+    animation: 0.3s animation-enter-right-mix;
 }
 
-@keyframes animation-exit-left {
+@keyframes animation-exit-left-mix {
     0% {
         left: 0;
         opacity: 1;
@@ -55,7 +59,7 @@
     }
 }
 
-@keyframes animation-enter-left {
+@keyframes animation-enter-left-mix {
     0% {
         left: 20%;
         opacity: 0.2;
@@ -66,7 +70,7 @@
     }
 }
 
-@keyframes animation-exit-right {
+@keyframes animation-exit-right-mix {
     0% {
         left: 0;
         opacity: 1;
@@ -77,13 +81,113 @@
     }
 }
 
-@keyframes animation-enter-right {
+@keyframes animation-enter-right-mix {
     0% {
         left: -20%;
         opacity: 0.2;
     }
     100% {
         left: 0;
+        opacity: 1;
+    }
+}
+
+// 滑动切换效果
+.rotation-exit-left-scroll {
+    animation: 0.3s animation-exit-left-scroll;
+}
+.rotation-enter-left-scroll {
+    animation: 0.3s animation-enter-left-scroll;
+}
+.rotation-exit-right-scroll {
+    animation: 0.3s animation-exit-right-scroll;
+}
+.rotation-enter-right-scroll {
+    animation: 0.3s animation-enter-right-scroll;
+}
+
+@keyframes animation-exit-left-scroll {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes animation-enter-left-scroll {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes animation-exit-right-scroll {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes animation-enter-right-scroll {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+// 渐隐切换效果
+.rotation-exit-left-fade {
+    animation: 0.3s animation-exit-left-fade;
+}
+.rotation-enter-left-fade {
+    animation: 0.3s animation-enter-left-fade;
+}
+.rotation-exit-right-fade {
+    animation: 0.3s animation-exit-right-fade;
+}
+.rotation-enter-right-fade {
+    animation: 0.3s animation-enter-right-fade;
+}
+
+@keyframes animation-exit-left-fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes animation-enter-left-fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animation-exit-right-fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes animation-enter-right-fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }

@@ -38,6 +38,7 @@ class App extends React.Component {
                     timeout={3000}
                     dots
                     easing="linear"
+                    effect="scroll"
                     beforeChange={this.beforeChange}
                     afterChange={this.afterChange}
                 >
