@@ -79,17 +79,19 @@ export default class Rotation extends React.Component {
     componentDidUpdate(prevProps) {
         const { autoplay, timeout } = this.props;
         /**
-         * autoplay 为 true 的情况下比较 timeout 前后值 ，如果不一致关闭定时器重新打开
-         * autoplay 的前后值不同且 autoplay 为 true 的情况下开启定时器
-         * autoplay 的前后值不同且 autoplay 为 false 的情况下关闭定时器
+         * autoplay 为 true 的情况下比较 timeout 前后值，如果不一致关闭自动播放重新打开
+         * autoplay 的前后值不同时根据 autoplay 的值开启或关闭自动播放
          */
         if (autoplay && timeout !== prevProps.timeout) {
             this.stopAutoPlay();
             this.beginAutoPlay();
-        } else if (autoplay !== prevProps.autoplay && autoplay) {
-            this.beginAutoPlay();
-        } else if (autoplay !== prevProps.autoplay && !autoplay) {
-            this.stopAutoPlay();
+        }
+        if (autoplay !== prevProps.autoplay) {
+            if (autoplay) {
+                this.beginAutoPlay();
+            } else {
+                this.stopAutoPlay();
+            }
         }
     }
     componentWillUnmount() {
@@ -125,7 +127,8 @@ export default class Rotation extends React.Component {
     // 触摸开始时记录当前坐标
     onTouchStart = (e) => {
         this.stopAutoPlay();
-        this.touchStart = e.nativeEvent.targetTouches[0].pageX;
+        const [{ pageX }] = e.nativeEvent.targetTouches;
+        this.touchStart = pageX;
     }
     // 触摸结束时触发对应切换事件
     onTouchEnd = () => {
@@ -133,9 +136,9 @@ export default class Rotation extends React.Component {
         this.touchStart = null;
         const { iconLeft, iconRight } = this.state;
         if (iconLeft) {
-            this.goMove('down');
+            this.goMove('right');
         } else if (iconRight) {
-            this.goMove('up');
+            this.goMove('left');
         }
         this.setState({
             iconLeft: false,
@@ -146,7 +149,7 @@ export default class Rotation extends React.Component {
         const { autoplay, timeout } = this.state;
         // autoplay 开启和 timeout 正确的情况下开启自动轮播定时器
         if (this.clearInterval === undefined && autoplay && timeout) {
-            this.clearInterval = setInterval(() => this.goMove('up'), timeout);
+            this.clearInterval = setInterval(() => this.goMove('left'), timeout);
         }
     }
     stopAutoPlay = () => {
@@ -168,17 +171,17 @@ export default class Rotation extends React.Component {
     /**
      * 控制轮播图左右切换的函数
      * @param {String} type
-     * type 值只有两个 'up' 和 'down' 代表着向前和向后
+     * type 值只有两个 'left' 和 'right' 代表着向左和向右
      */
     goMove = (type) => {
         const { children } = this.props;
         const { index } = this.state;
         const len = children.length;
         switch (type) {
-        case 'up':
+        case 'left':
             this.changeState(index < len - 1 ? index + 1 : 0, 'left');
             break;
-        case 'down':
+        case 'right':
             this.changeState(index > 0 ? index - 1 : len - 1, 'right');
             break;
         default:

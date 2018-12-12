@@ -58,7 +58,7 @@ export default class MovementArrows extends React.Component {
         return (
             <div className="movement-arrows">
                 <button
-                    onClick={this.handleClick('down')}
+                    onClick={this.handleClick('right')}
                     className={classNames(
                         'iconfont',
                         'icon-arrow-left',
@@ -66,7 +66,7 @@ export default class MovementArrows extends React.Component {
                     )}
                 />
                 <button
-                    onClick={this.handleClick('up')}
+                    onClick={this.handleClick('left')}
                     className={classNames(
                         'iconfont',
                         'icon-arrow-right',
