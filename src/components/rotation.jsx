@@ -111,8 +111,7 @@ export default class Rotation extends React.Component {
     // 触摸滑动事件
     onTouchMove = (e) => {
         // 滑动方向的箭头显示
-        const [touch] = e.nativeEvent.targetTouches;
-        const { pageX } = touch;
+        const [{ pageX }] = e.nativeEvent.targetTouches;
         if (this.touchStart || this.touchStart === 0) {
             let iconLeft = false;
             let iconRight = false;
