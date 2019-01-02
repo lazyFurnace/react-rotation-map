@@ -58,14 +58,18 @@ function output(env) {
  */
 function plugins(env) {
     const rootPath = path.join(__dirname, "../");
+    const cleanOptions = {
+        root: rootPath,
+        exclude: ['.git']
+    }
     const pluginsConfig = {
         lib: [
-            new CleanWebpackPlugin(['lib'], { root: rootPath })
+            new CleanWebpackPlugin(['lib'], cleanOptions)
         ],
         build: [
             ...defaultCongif.plugins,
             new UglifyJsPlugin(),
-            new CleanWebpackPlugin(['dist'], { root: rootPath })
+            new CleanWebpackPlugin(['dist'], cleanOptions)
         ],
         dev: [
             ...defaultCongif.plugins
