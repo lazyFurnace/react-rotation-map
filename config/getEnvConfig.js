@@ -38,7 +38,7 @@ function output(env) {
             libraryTarget: 'commonjs2'
         },
         build: {
-            path: path.join(__dirname, '../dist'),
+            path: path.join(__dirname, '../dist/home'),
             filename: 'index.[hash:8].js',
             chunkFilename: '[name].[chunkhash:8].js',
             libraryTarget: 'umd'
