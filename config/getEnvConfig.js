@@ -60,7 +60,7 @@ function plugins(env) {
     const rootPath = path.join(__dirname, "../");
     const cleanOptions = {
         root: rootPath,
-        exclude: ['.git']
+        exclude: ['.git', 'README.md']
     }
     const pluginsConfig = {
         lib: [
