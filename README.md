@@ -26,9 +26,9 @@ import Rotation from 'react-rotation-map';
 
 const App = () => (
     <Rotation>
-        <div className='className'>React</div>
-        <div className='className'>Vue</div>
-        <div className='className'>Angular</div>
+        <div>React</div>
+        <div>Vue</div>
+        <div>Angular</div>
     </Rotation>
 )
 
@@ -39,11 +39,18 @@ ReactDOM.render(<App />, mountNode);
 
 ```bash
 // 安装依赖
-npm install or yarn
+npm install
+yarn
+
 // 启动项目 - 项目会以本机 ip 启动
-npm run dev or yarn dev
+npm run dev
+yarn dev
+
 // 项目构建
-npm run build or yarn build
+npm run build
+yarn build
+
 // 构建 package
-npm run build:lib or yarn build:lib
+npm run build:lib
+yarn build:lib
 ```
