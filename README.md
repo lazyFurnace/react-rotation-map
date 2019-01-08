@@ -25,14 +25,16 @@ import ReactDom from 'react-dom';
 import Rotation from 'react-rotation-map';
 
 const App = () => (
-    <Rotation>
-        <div>React</div>
-        <div>Vue</div>
-        <div>Angular</div>
-    </Rotation>
+    <div style={{ height: '400px', width: '400px' }}>
+        <Rotation>
+            <div>React</div>
+            <div>Vue</div>
+            <div>Angular</div>
+        </Rotation>
+    </div>
 )
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 ## 本地开发
