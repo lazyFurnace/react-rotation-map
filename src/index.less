@@ -2,27 +2,47 @@
 
 body {
     margin: 0;
-}
-.root {
-    width: 100%;
-    max-width: 800px;
-    height: 400px;
-    margin: 0 auto;
     background: #efefef;
 }
-#console {
-    text-align: center;
-    margin: 20px;
+
+header {
+    max-width: 1000px;
+    margin: 20px auto 0;
+    h2 {
+        margin-left: 20px;
+    }
 }
+
+.complete-example {
+    .rotation-content {
+        width: 100%;
+        max-width: 800px;
+        height: 300px;
+        margin: 0 auto;
+        background: #efefef;
+    }
+    .rotation-text {
+        text-align: center;
+    }
+    .rotation-button {
+        text-align: center;
+        button {
+            margin: 0 20px;
+            width: 100px;
+        }
+    }
+}
+
 .react-rotation {
     height: 100%;
     width: 100%;
-    background-position: center 30px;
+    background-position: center 0;
     background-repeat: no-repeat;
     overflow: hidden;
     h1 {
         text-align: center;
-        margin-top: 300px;
+        margin-top: 230px;
+        color: #666;
     }
 }
 .Angular {
