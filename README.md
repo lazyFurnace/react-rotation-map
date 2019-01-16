@@ -1,5 +1,3 @@
-> <a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank">详细实例</a>
-
 ## 特性
 
 - 支持移动端事件
@@ -17,6 +15,8 @@
 `effect`|动画切换效果|`string`|`scroll`
 `beforeChange`|切换动画之前的回调函数|`function(from, to)`|`-`
 `afterChange`|切换动画之后的回调函数|`function(current)`|`-`
+
+#### <a href="/react-rotation-map/home" target="_blank">详细实例</a>
 
 ## ref 操作属性
 
