@@ -1,6 +1,6 @@
 <h1 align="center">React Rotation Map</h1>
 
-<div align="center">一款简单易用的 React 轮播图组件。</div>
+<div align="center">一款简单易用的 React 轮播图组件</div>
 
 ## 支持环境
 
