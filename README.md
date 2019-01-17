@@ -1,3 +1,5 @@
+# 组件详情
+
 ## 特性
 
 - 支持移动端事件
@@ -15,6 +17,8 @@
 `effect`|动画切换效果|`string`|`scroll`
 `beforeChange`|切换动画之前的回调函数|`function(from, to)`|`-`
 `afterChange`|切换动画之后的回调函数|`function(current)`|`-`
+
+<br>
 
 - `easing` 取值有 `linear` | `ease` | `ease-in` | `ease-out` | `ease-in-out`
 - `effect` 取值有 `scroll(滑动)` | `fade(渐隐)` | `mix(滑动&渐隐)`
@@ -59,18 +63,22 @@ class App extends React.Component {
 ## 完整属性
 
 ```jsx
-<Rotation
-    ref={this.rotation}
-    dots
-    autoplay
-    timeout={3000}
-    easing="linear"
-    effect="scroll"
-    beforeChange={this.beforeChange}
-    afterChange={this.afterChange}
->
-    {rotationData.map(item => <h1 key={item.id}>{item}</h1>)}
-</Rotation>
+function App({ rotationData, beforeChange, afterChange }) {
+    return (
+        <Rotation
+            ref={this.rotation}
+            dots
+            autoplay
+            timeout={3000}
+            easing="linear"
+            effect="scroll"
+            beforeChange={this.beforeChange}
+            afterChange={this.afterChange}
+        >
+            {rotationData.map(item => <h1 key={item.id}>{item}</h1>)}
+        </Rotation>
+    )
+}
 ```
 
 #### <a href="https://github.com/liqiUser/react-rotation-map/blob/master/src/index.jsx" target="_blank">完整实例代码</a>
