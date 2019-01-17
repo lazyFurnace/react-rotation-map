@@ -1,5 +1,3 @@
-# 组件详情
-
 ## 特性
 
 - 支持移动端事件
@@ -20,23 +18,23 @@
 
 <br>
 
-- `easing` 取值有 `linear` | `ease` | `ease-in` | `ease-out` | `ease-in-out`
-- `effect` 取值有 `scroll(滑动)` | `fade(渐隐)` | `mix(滑动&渐隐)`
+- `easing` 取值有 `linear | ease | ease-in | ease-out | ease-in-out`
+- `effect` 取值有 `scroll(滑动) | fade(渐隐) | mix(滑动&渐隐)`
 
 #### <a href="/react-rotation-map/home" target="_blank">详细实例</a>
 
 ## 函数操作
 
-#### 参数
+### 参数
 
-拥有 `goTo` 和 `goMove` 两个方法操作轮播图 <br>
+> 拥有 `goTo` 和 `goMove` 两个方法操作轮播图 <br>
 
 - `goTo(number)`：切换到指定轮播页
 - `goMove(type)`：切换上一个/下一个，参数为 `left` 或 `right`
 
-#### 使用方法
+### 方法
 
-使用 `ref` 方法获取 `Rotation` 组件对象
+使用 `ref` 方法获取 `Rotation` 组件对象，调用其内部方法。
 
 ```jsx
 class App extends React.Component {
