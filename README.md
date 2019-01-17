@@ -8,64 +8,69 @@
 
 参数|说明|类型|默认
 :--:|:--:|:--:|:--:
-`dots`|切换指示条显示|`boolean`|`true`
+`dots`|是否显示指示条|`boolean`|`true`
 `autoplay`|是否自动轮播|`boolean`|`false`
 `timeout`|自动轮播间隔时长|`number`|`3000`
-`easing`|动画速度效果|`string`|`linear`
+`easing`|动画过渡速度曲线|`string`|`linear`
 `effect`|动画切换效果|`string`|`scroll`
 `beforeChange`|切换动画之前的回调函数|`function(from, to)`|`-`
 `afterChange`|切换动画之后的回调函数|`function(current)`|`-`
 
+- `easing` 取值有 `linear` | `ease` | `ease-in` | `ease-out` | `ease-in-out`
+- `effect` 取值有 `scroll(滑动)` | `fade(渐隐)` | `mix(滑动&渐隐)`
+
 #### <a href="/react-rotation-map/home" target="_blank">详细实例</a>
 
-## ref 操作属性
-
-#### 使用方法
-
-使用 `React.createRef()` 创建 `ref`
-
-```jsx
-constructor(props) {
-    ...
-    this.rotation = React.createRef();
-    ...
-}
-```
-
-将创建的 `rotation` 放入组件中 
-
-```jsx
-<Rotation ref={this.rotation}>
-    ...
-<Rotation/>
-```
+## 函数操作
 
 #### 参数
 
-使用 `this.rotation.current` 获取组件 <br>
-可使用方法共两个 `goTo` 和 `goMove` <br>
+拥有 `goTo` 和 `goMove` 两个方法操作轮播图 <br>
 
-- `goTo(slideNumber)`：切换到指定内容，`slideNumber` 为 `number` 类型 
-- `goMove(type)`：向前/后切换，参数只能是 `up` 、 `down`
+- `goTo(number)`：切换到指定轮播页
+- `goMove(type)`：切换上一个/下一个，参数为 `left` 或 `right`
 
-## 实例
+#### 使用方法
+
+使用 `ref` 方法获取 `Rotation` 组件对象
+
+```jsx
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.rotation = React.createRef();
+    }
+    handleClick = () => {
+        this.rotation.current.goMove('left');
+    }
+    render() {
+        return (
+            <React.Fragment>
+                <Rotation ref={this.rotation}>
+                    {/* some component */}
+                </Rotation>
+                <button onClick={this.handleClick}>向左</button>
+            </React.Fragment>
+        );
+    }
+}
+```
+
+## 完整属性
 
 ```jsx
 <Rotation
     ref={this.rotation}
-    autoplay
-    timeout={2000}
     dots
+    autoplay
+    timeout={3000}
     easing="linear"
+    effect="scroll"
     beforeChange={this.beforeChange}
     afterChange={this.afterChange}
 >
-    ...
+    {rotationData.map(item => <h1 key={item.id}>{item}</h1>)}
 </Rotation>
 ```
 
-`ref` 操作 <br>
-
-```jsx
-this.rotation.current.goMove(up)
-```
+#### <a href="https://github.com/liqiUser/react-rotation-map/blob/master/src/index.jsx" target="_blank">完整实例代码</a>
