@@ -1,8 +1,12 @@
 {
   "name": "react-rotation-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Rotation",
   "main": "./lib/index.js",
+  "files": [
+    "dist",
+    "lib"
+  ],
   "scripts": {
     "build": "npx cross-env NODE_ENV=build webpack --config webpack.config.js",
     "build:lib": "npx cross-env NODE_ENV=lib webpack --config webpack.config.js",
